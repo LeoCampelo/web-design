@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Exemplo de Estrutura HTML</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1 style="text-align: center;">Título Principal</h1>
+        <h2 style="text-align: left;">Título Secundário</h2>
+        <h3 style="text-align: right;">Título à Direita</h3>
+        <h4>Título 4</h4>
+        <h5>Título 5</h5>
+        <h6>Título 6</h6>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav>
+        <p>
+            <a href="#posts">Posts</a> | 
+            <a href="#lateral">Lateral</a> | 
+            <a href="#rodape">Rodapé</a>
+        </p>
+    </nav>
+
+    <!-- Seção de Posts -->
+    <section id="posts">
+        <article class="post">
+            <header>
+                <h2>Meu Blog – Primeiro Post</h2>
+            </header>
+            <p><strong>Este é um texto em negrito.</strong> <em>Este é um texto em itálico.</em> <span style="text-decoration: underline;">Texto sublinhado com CSS.</span> <span style="text-decoration: line-through;">Texto riscado com CSS.</span> <sub>Texto com subescrito</sub> e <sup>Texto com sobrescrito</sup>.</p>
+            
+            <p style="color: blue; font-size: 20px;">Este é um texto com cor azul e tamanho de fonte maior.</p>
+
+            <div class="center">
+                Este texto está centralizado
+            </div>
+
+            <p style="text-align: justify;">
+                Este é um parágrafo com alinhamento justificado. 
+                <br>
+                Continuação do texto após a quebra de linha.
+            </p>
+        </article>
+    </section>
+
+    <!-- Barra lateral -->
+    <aside id="lateral">
+        <h3>Conteúdo Relacionado</h3>
+        <p>Texto explicativo sobre o conteúdo relacionado ao blog.</p>
+    </aside>
+
+    <!-- Rodapé -->
+    <footer id="rodape">
+        <p>© 2025 – Exemplo didático de HTML da Aula</p>
+    </footer>
+</body>
+</html>
