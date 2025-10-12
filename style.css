@@ -1,0 +1,181 @@
+/* ======================================= */
+/* 1. VARIÁVEIS CSS (ROOT) E RESET BÁSICO  */
+/* ======================================= */
+
+:root {
+    /* Paleta de Cores */
+    --cor-fundo-principal: #f7f5ef; 
+    --cor-texto-principal: #ffffff; 
+    --cor-destaque: #374a0f;        
+    --cor-secundaria: #a3b18a;      
+    --cor-acento: #e0ac93;          
+    --cor-borda-menu: #e8e8e8;      
+    
+    /* Fontes */
+    --fonte-principal: 'Georgia', 'Times New Roman', serif; 
+    --fonte-corpo: 'Helvetica Neue', 'Arial', sans-serif; 
+}
+
+/* Reset Básico para melhor consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definições para os elementos base das páginas */
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-principal);
+    line-height: 1.6; 
+    padding-top: 65px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+/* ======================================= */
+/* 2. ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)  */
+/* ======================================= */
+
+.navbar-fixa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 50px; 
+    background-color: var(--cor-fundo-principal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--cor-borda-menu);
+}
+
+.logo a {
+    font-family: var(--fonte-principal);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-destaque); 
+}
+
+.logo {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1001;
+}
+
+.menu-principal-links ul { 
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.menu-principal-links a { 
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    color: var(--cor-destaque);
+}
+
+.menu-principal-links a:hover { 
+    color: var(--cor-secundaria);
+    border-bottom: 2px solid var(--cor-secundaria); 
+}
+
+.menu-principal-icone { 
+    margin-left: 10px; 
+}
+
+.emoji-manga {
+    font-size: 1.5rem; 
+    font-family: initial;
+    vertical-align: middle; 
+}
+
+
+
+
+/* ======================================= */
+/* 4. SEÇÃO PRINCIPAL DE DESTAQUE          */
+/* ======================================= */
+
+.main-section {
+    min-height: 80vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('midia/img_home/prefeitura_sorocaba.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center; 
+    padding: 0 50px;
+}
+
+.main-conteudo {
+    max-width: 600px; 
+    color: var(--cor-texto-principal); 
+}
+
+.main-conteudo h1 {
+    font-family: var(--fonte-principal);
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.main-conteudo p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.botao-destaque {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-principal); 
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao-destaque:hover {
+    background-color: #405c23; 
+}
+
+
+
+
+/* ======================================= */
+/* 5. SEÇÃO DE FAIXA EXTRA (Faixa)         */
+/* ======================================= */
+
+.faixa-extra {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-principal);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+.container-faixa p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
