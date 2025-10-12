@@ -6,6 +6,7 @@
     /* Paleta de Cores */
     --cor-fundo-principal: #f7f5ef; 
     --cor-texto-principal: #ffffff; 
+    --cor-texto-secundario: #6D7E6C;
     --cor-destaque: #6D7E6C;        
     --cor-secundaria: #a3b18a;      
     --cor-acento: #e0ac93;          
@@ -105,4 +106,76 @@ ul {
     font-size: 1.5rem; 
     font-family: initial;
     vertical-align: middle; 
+}
+
+/* ======================================= */
+/*            RODAPÉ (FOOTER)              */
+/* ======================================= */
+
+.rodape {
+    background-color: var(--cor-texto-secundario); 
+    color: var(--cor-fundo-principal); 
+    padding-top: 50px;
+    font-size: 0.9rem;
+}
+
+.container-rodape {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px 30px 50px;
+}
+
+.rodape-coluna {
+    flex-basis: 25%; 
+}
+
+.rodape-coluna h3 {
+    font-family: var(--fonte-principal);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--cor-fundo-principal); 
+}
+
+.rodape-coluna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rodape-coluna li {
+    margin-bottom: 8px;
+}
+
+.rodape-coluna a {
+    color: var(--cor-fundo-principal); 
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna a:hover {
+    color: var(--cor-destaque);
+}
+
+.logo-rodape {
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-fundo-principal); 
+    display: block;
+    margin-bottom: 15px;
+}
+
+.direitos-autorais {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: rgba(247, 245, 239, 0.7); 
+}
+
+.rodape-faixa-inferior {
+    background-color: rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
