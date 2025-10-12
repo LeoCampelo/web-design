@@ -1,0 +1,310 @@
+/* ======================================= */
+/*      SEÇÃO PRINCIPAL DE DESTAQUE        */
+/* ======================================= */
+
+.main-section {
+    min-height: 80vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../midia/img_home/prefeitura_sorocaba.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center; 
+    padding: 0 50px;
+}
+
+.main-conteudo {
+    max-width: 600px; 
+    color: var(--cor-texto-principal); 
+}
+
+.main-conteudo h1 {
+    font-family: var(--fonte-principal);
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.main-conteudo p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.botao-destaque {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-principal); 
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao-destaque:hover {
+    background-color: #576556; 
+}
+
+
+
+
+/* ======================================= */
+/*      SEÇÃO DE FAIXA EXTRA (Faixa)       */
+/* ======================================= */
+
+.faixa-extra {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-principal);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+.container-faixa p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* ======================================= */
+/*              SEÇÃO LAZER                */
+/* ======================================= */
+
+.section-lazer {
+    padding: 80px 50px;
+    background-color: var(--cor-fundo-principal);
+}
+
+.container-lazer {
+    display: flex;
+    gap: 50px; 
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+
+.lazer-intro {
+    flex: 0 0 300px; 
+}
+
+.lazer-intro h2 {
+    font-family: var(--fonte-principal);
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--cor-texto-secundario);
+}
+
+.lazer-intro p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--cor-texto-secundario);
+}
+
+.botao-lazer {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-texto-secundario); 
+    color: var(--cor-fundo-principal); 
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao-lazer:hover {
+    background-color: var(--cor-secundaria);
+    color: #576556;
+}
+
+.lazer-galeria {
+    flex-grow: 1; 
+    display: flex;
+    gap: 30px; 
+}
+
+.lazer-item {
+    flex: 1; 
+    text-align: center;
+}
+
+.item-imagem {
+    width: 100%;
+    height: 350px; 
+    background-color: var(--cor-texto-secundario); 
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid var(--cor-destaque);
+}
+
+.item-imagem-1 { 
+    background-image: url('../../midia/img_home/parque-das-aguas.jpeg'); 
+} 
+
+.item-imagem-2 { 
+    background-image: url('../../midia/img_home/ciclovia.jpg'); 
+}
+
+.item-imagem-3 { 
+    background-image: url('../../midia/img_home/iguatemi-esplanada.jpg'); 
+}
+
+.item-titulo {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 3px;
+    color: var(--cor-texto-secundario);
+}
+
+.item-info {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+
+/* ======================================= */
+/*            SEÇÃO HISTÓRIA               */
+/* ======================================= */
+
+.section-historia {
+    background-color: var(--cor-acento); 
+    padding: 80px 50px;
+}
+
+.container-historia {
+    display: flex;
+    gap: 50px; 
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center; 
+}
+
+.historia-imagem {
+    flex: 1; 
+    height: 500px; 
+    background-image: url('../../midia/img_home/historia-sorocaba.png'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.historia-intro {
+    flex: 1; 
+    max-width: 50%; 
+}
+
+.historia-intro h2 {
+    font-family: var(--fonte-principal);
+    font-size: 3rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--cor-texto-secundario); 
+}
+
+.historia-intro p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--cor-texto-secundario);
+}
+
+.botao-historia {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-texto-secundario); 
+    color: var(--cor-fundo-principal); /* Texto claro */
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao-historia:hover {
+    background-color: #576556; 
+}
+
+
+
+
+/* ======================================= */
+/*        SEÇÃO PONTOS TURÍSTICOS          */
+/* ======================================= */
+
+.section-turismo {
+    padding: 80px 50px;
+    background-color: var(--cor-fundo-principal); 
+}
+
+
+.turismo-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto; 
+}
+
+.turismo-header h2 {
+    font-family: var(--fonte-principal);
+    font-size: 3.5rem; 
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--cor-texto-secundario);
+}
+
+.turismo-header p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--cor-texto-secundario);
+}
+
+.botao-turismo {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-destaque); 
+    color: var(--cor-fundo-principal);
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao-turismo:hover {
+    background-color: #576556; 
+}
+
+.container-turismo-galeria {
+    display: flex;
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.turismo-item {
+    flex: 1;
+    text-align: center;
+}
+
+
+.turismo-item .item-imagem {
+    height: 400px; 
+    background-color: var(--cor-borda-menu); 
+    border-bottom: 2px solid var(--cor-destaque); 
+}
+
+.item-turismo-1 { 
+    background-image: url('../../midia/img_home/jardim-botanico.jpg'); 
+} 
+
+.item-turismo-2 { 
+    background-image: url('../../midia/img_home/zoologico-quinzinho.jpg'); 
+}
+
+.item-turismo-3 { 
+    background-image: url('../../midia/img_home/mosteiro-sao-bento.jpeg'); 
+}

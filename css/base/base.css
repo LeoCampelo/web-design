@@ -1,0 +1,181 @@
+/* ======================================= */
+/* 1. VARIÁVEIS CSS (ROOT) E RESET BÁSICO  */
+/* ======================================= */
+
+:root {
+    /* Paleta de Cores */
+    --cor-fundo-principal: #f7f5ef; 
+    --cor-texto-principal: #ffffff; 
+    --cor-texto-secundario: #6D7E6C;
+    --cor-destaque: #6D7E6C;        
+    --cor-secundaria: #a3b18a;      
+    --cor-acento: #e0ac93;          
+    --cor-borda-menu: #e8e8e8;      
+    
+    /* Fontes */
+    --fonte-principal: 'Georgia', 'Times New Roman', serif; 
+    --fonte-corpo: 'Helvetica Neue', 'Arial', sans-serif; 
+}
+
+/* Reset Básico para melhor consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definições para os elementos base das páginas */
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-principal);
+    line-height: 1.6; 
+    padding-top: 65px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+/* ======================================= */
+/* 2. ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)  */
+/* ======================================= */
+
+.navbar-fixa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 50px; 
+    background-color: var(--cor-fundo-principal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--cor-borda-menu);
+}
+
+.logo a {
+    font-family: var(--fonte-principal);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-destaque); 
+}
+
+.logo {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1001;
+}
+
+.menu-principal-links ul { 
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.menu-principal-links a { 
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    color: var(--cor-destaque);
+}
+
+.menu-principal-links a:hover { 
+    color: var(--cor-secundaria);
+    border-bottom: 2px solid var(--cor-secundaria); 
+}
+
+.menu-principal-icone { 
+    margin-left: 10px; 
+}
+
+.emoji-manga {
+    font-size: 1.5rem; 
+    font-family: initial;
+    vertical-align: middle; 
+}
+
+/* ======================================= */
+/*            RODAPÉ (FOOTER)              */
+/* ======================================= */
+
+.rodape {
+    background-color: var(--cor-texto-secundario); 
+    color: var(--cor-fundo-principal); 
+    padding-top: 50px;
+    font-size: 0.9rem;
+}
+
+.container-rodape {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px 30px 50px;
+}
+
+.rodape-coluna {
+    flex-basis: 25%; 
+}
+
+.rodape-coluna h3 {
+    font-family: var(--fonte-principal);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--cor-fundo-principal); 
+}
+
+.rodape-coluna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rodape-coluna li {
+    margin-bottom: 8px;
+}
+
+.rodape-coluna a {
+    color: var(--cor-fundo-principal); 
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna a:hover {
+    color: var(--cor-destaque);
+}
+
+.logo-rodape {
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-fundo-principal); 
+    display: block;
+    margin-bottom: 15px;
+}
+
+.direitos-autorais {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: rgba(247, 245, 239, 0.7); 
+}
+
+.rodape-faixa-inferior {
+    background-color: rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
