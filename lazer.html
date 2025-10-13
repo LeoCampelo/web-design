@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/lazer/lazer.css">
 </head>
 <body>
-    <!-- Header fixo igual ao index -->
+    <!-- Header fixo igual ao home -->
     <header class="navbar-fixa">
         <nav class="menu-principal-links">
             <ul>
@@ -193,9 +193,41 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Sorocaba Turismo. Todos os direitos reservados.</p>
+    <footer class="rodape">
+        <div class="container-rodape">
+            
+            <div class="rodape-coluna rodape-logo">
+                <a href="home.html" class="logo-rodape">SOROCABA</a>
+                <p class="direitos-autorais">
+                    &copy; 2025 Projeto Sorocaba. <br>Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="historia.html">História</a></li>
+                    <li><a href="lazer.html">Lazer</a></li>
+                    <li><a href="pontos-turisticos.html">Pontos Turísticos</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Fale Conosco</h3>
+                <ul>
+                    <li><a href="mailto:contato@sorocaba.com">Email: contato@sorocaba.com</a></li>
+                    <li><a href="#">Telefone: (15) 99999-9999</a></li>
+                    <li><a href="#">Redes Sociais</a></li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="rodape-faixa-inferior">
+            <p>Desenvolvido com inspiração na excelência de design.</p>
+        </div>
     </footer>
+    
     <script>
         // Botão voltar ao topo
         const btn = document.getElementById('voltar-topo');
