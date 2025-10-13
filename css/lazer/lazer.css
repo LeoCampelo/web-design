@@ -120,15 +120,6 @@
     margin: 40px 0 30px 0;
 }
 
-footer {
-    text-align: center;
-    padding: 24px 0 12px 0;
-    background: var(--cor-fundo-principal);
-    color: var(--cor-destaque);
-    font-size: 1rem;
-    margin-top: 40px;
-}
-
 #voltar-topo {
     position: fixed;
     right: 32px;
