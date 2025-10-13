@@ -1,0 +1,173 @@
+/* Importa a base */
+@import url("../base/base.css");
+
+/* Personalizações para a página de lazer */
+.lazer-section {
+    background-color: var(--cor-secundaria);
+    padding: 60px 0 40px 0;
+}
+
+.lazer-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    color: #333;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    padding: 48px 32px;
+}
+
+.lazer-conteudo h1 {
+    color: var(--cor-destaque);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-family: var(--fonte-principal);
+}
+
+.lazer-conteudo p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.lazer-subtitulo {
+    font-size: 1.15rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.lazer-topico {
+    font-size: 1.4rem;
+    margin: 40px 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor-destaque);
+    font-family: var(--fonte-principal);
+}
+
+.lazer-icone {
+    font-size: 1.7em;
+    vertical-align: middle;
+}
+
+.lazer-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.lazer-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 22px;
+    gap: 32px;
+}
+
+.lazer-foto {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 2px solid var(--cor-borda-menu);
+    transition: box-shadow 0.2s;
+}
+.lazer-foto:hover {
+    box-shadow: 0 0 0 4px var(--cor-acento);
+}
+
+.lazer-info h2 {
+    color: var(--cor-acento);
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    font-family: var(--fonte-principal);
+}
+
+.lazer-info p {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.lazer-info a {
+    color: #e07a53;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.2s;
+    font-size: 1.05rem;
+}
+.lazer-info a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
+.lazer-divisor {
+    border: none;
+    border-top: 2px dashed var(--cor-acento);
+    margin: 40px 0 30px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 24px 0 12px 0;
+    background: var(--cor-fundo-principal);
+    color: var(--cor-destaque);
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+#voltar-topo {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background: var(--cor-acento);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: background 0.2s;
+}
+#voltar-topo:hover {
+    background: var(--cor-destaque);
+}
+
+@media (max-width: 700px) {
+    .lazer-conteudo {
+        padding: 18px 6px;
+    }
+    .lazer-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 14px;
+    }
+    .lazer-foto {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+    }
+}
+.ativo {
+    color: var(--cor-acento) !important;
+    font-weight: bold;
+    border-bottom: 2px solid var(--cor-acento);
+}
