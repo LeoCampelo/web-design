@@ -126,11 +126,14 @@
     flex-grow: 1; 
     display: flex;
     gap: 30px; 
+    padding-bottom: 10px;
 }
 
 .lazer-item {
     flex: 1; 
     text-align: center;
+    position: relative; 
+    z-index: 1; 
 }
 
 .item-imagem {
@@ -170,63 +173,87 @@
 
 
 /* ======================================= */
-/*            SEÇÃO HISTÓRIA               */
+/*             SEÇÃO HISTÓRIA 			   */
 /* ======================================= */
 
 .section-historia {
-    background-color: var(--cor-acento); 
-    padding: 80px 50px;
+	background-color: var(--cor-acento); 
+	padding: 80px 50px;
 }
 
 .container-historia {
-    display: flex;
-    gap: 50px; 
-    max-width: 1400px;
-    margin: 0 auto;
-    align-items: center; 
+	display: flex;
+	gap: 50px; 
+	max-width: 1400px;
+	margin: 0 auto;
+	align-items: center; 
 }
 
+.historia-coluna-esquerda {
+	flex: 1; 
+	padding-bottom: 5px; 
+}
+
+/* Estilo da Imagem */
 .historia-imagem {
-    flex: 1; 
-    height: 500px; 
-    background-image: url('../../midia/img_home/historia-sorocaba.png'); 
-    background-size: cover;
-    background-position: center;
+	width: 100%; /* Ocupa toda a largura do seu container */
+	height: 500px; 
+	background-image: url('../../midia/img_home/historia-sorocaba.png'); 
+	background-size: cover;
+	background-position: center;
+	margin-bottom: 10px; /* Espaço entre imagem e legenda */
+}
+
+/* NOVO: Estilização da Legenda (igual aos cards de Lazer/Turismo) */
+.historia-imagem-legenda {
+	text-align: left;
+}
+
+.historia-imagem-legenda h4 {
+	font-weight: bold;
+	font-size: 1.05rem;
+	margin-bottom: 3px;
+	color: var(--cor-texto-secundario);
+}
+
+.historia-imagem-legenda p {
+	font-size: 0.9rem;
+	color: #888;
 }
 
 .historia-intro {
-    flex: 1; 
-    max-width: 50%; 
+	flex: 1; 
+	max-width: 50%; 
 }
 
 .historia-intro h2 {
-    font-family: var(--fonte-principal);
-    font-size: 3rem; 
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--cor-texto-secundario); 
+	font-family: var(--fonte-principal);
+	font-size: 3rem; 
+	line-height: 1.1;
+	margin-bottom: 20px;
+	color: var(--cor-texto-secundario); 
 }
 
 .historia-intro p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: var(--cor-texto-secundario);
+	font-size: 1.1rem;
+	margin-bottom: 30px;
+	color: var(--cor-texto-secundario);
 }
 
 .botao-historia {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: var(--cor-texto-secundario); 
-    color: var(--cor-fundo-principal); /* Texto claro */
-    font-family: var(--fonte-corpo);
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    transition: background-color 0.3s ease;
+	display: inline-block;
+	padding: 12px 30px;
+	background-color: var(--cor-texto-secundario); 
+	color: var(--cor-fundo-principal); /* Texto claro */
+	font-family: var(--fonte-corpo);
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	transition: background-color 0.3s ease;
 }
 
 .botao-historia:hover {
-    background-color: #576556; 
+	background-color: #576556; 
 }
 
 
@@ -283,11 +310,15 @@
     gap: 30px; 
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 .turismo-item {
     flex: 1;
     text-align: center;
+    position: relative; 
+    z-index: 1;
+    padding-bottom: 10px;
 }
 
 
@@ -307,4 +338,34 @@
 
 .item-turismo-3 { 
     background-image: url('../../midia/img_home/mosteiro-sao-bento.jpeg'); 
+}
+
+.dark-mode .section-historia .historia-intro h2,
+.dark-mode .section-historia .historia-intro p {
+    color: var(--cor-fundo-principal); 
+}
+
+
+
+
+/* ======================================= */
+/*            EFEITOS DE HOVER             */
+/* ======================================= */
+
+.lazer-item,
+.turismo-item,
+.historia-coluna-esquerda {
+    cursor: pointer; 
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.lazer-item:hover,
+.turismo-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    z-index: 10; 
+}
+
+.historia-coluna-esquerda:hover {
+    transform: translateY(-5px); 
 }
