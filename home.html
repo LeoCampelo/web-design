@@ -4,13 +4,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sorocaba - Página Inicial</title>
+        <title>Sorocaba Oficial - História, Lazer e Turismo | Página Inicial</title>
         <link rel="stylesheet" href="css/base/base.css"> 
         <link rel="stylesheet" href="css/home/home.css">
     </head>
 
     <body>
-        <!-- Header da página com menu para navegação no site -->
+        <script src="https://unpkg.com/scrollreveal"></script> 
+        <script src="js/base/base.js" defer></script> 
+        <script src="js/home/home.js" defer></script> 
+
         <header class="navbar-fixa">
             <nav class="menu-principal-links">
                 <ul>
@@ -24,14 +27,29 @@
                 <a href="home.html">SOROCABA</a>
             </div>
 
-            <div class="menu-principal-icone">
-                <a href="#" title="Link para o Manga">
-                    <span class="emoji-manga" aria-hidden="true">🥭</span>
-                </a>
-            </div>
+            <div class="menu-direita">
+				
+				<div class="hamburger-menu" id="toggle-menu-mobile">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+				<div class="menu-principal-tema">
+					<a href="#" id="toggle-dark-mode" title="Alternar Modo Claro/Escuro">
+						<span id="theme-icon" aria-hidden="true">🌙</span>
+					</a>
+				</div>
+
+				<div class="menu-principal-icone">
+					<a href="#" title="Link para o Manga">
+						<span class="emoji-manga" aria-hidden="true">🥭</span>
+					</a>
+				</div>
+				
+			</div>
         </header>
 
-        <!-- Texto principal da página com imagem de fundo -->
         <section class="main-section">
             <div class="main-conteudo">
                 <h1>Sorocaba: Tradição e Inovação no Coração Paulista.</h1>
@@ -40,7 +58,6 @@
             </div>
         </section>
 
-        <!-- Faixa abaixo do texto inicial -->
         <section class="faixa-extra">
             <div class="container-faixa">
                 <p>
@@ -49,7 +66,6 @@
             </div>
         </section>
 
-        <!-- Seção de lazer -->
         <section class="section-lazer">
             <div class="container-lazer">
                 
@@ -64,19 +80,19 @@
                     <div class="lazer-item">
                         <div class="item-imagem item-imagem-1"></div> 
                         <p class="item-titulo">Parque das Águas</p>
-                        <p class="item-info">Parques</p>
+                        <p class="item-info">Parques, lazer ao ar livre e grandes eventos.</p>
                     </div>
 
                     <div class="lazer-item">
                         <div class="item-imagem item-imagem-2"></div>
                         <p class="item-titulo">Ciclovia</p>
-                        <p class="item-info">Esporte e Saúde</p>
+                        <p class="item-info">Mais de 120km de vias para esporte e saúde.</p>
                     </div>
 
                     <div class="lazer-item">
                         <div class="item-imagem item-imagem-3"></div>
                         <p class="item-titulo">Shopping Iguatemi</p>
-                        <p class="item-info">Compras e Cultura</p>
+                        <p class="item-info">Centro de compras, cinema e gastronomia de alto nível.</p>
                     </div>
                     
                 </div>
@@ -84,12 +100,16 @@
             </div>
         </section>
 
-        <!-- Seção de história -->
         <section class="section-historia">
             <div class="container-historia">
-                
-                <div class="historia-imagem">
+
+                    <div class="historia-coluna-esquerda">
+                    <div class="historia-imagem"></div>
+                    <div class="historia-imagem-legenda">
+                        <h4>Estação Ferroviária de Sorocaba</h4>
+                        <p>O coração do ciclo Tropeiro e Industrial no início do século XX.</p>
                     </div>
+                </div>
 
                 <div class="historia-intro">
                     <h2>Sorocaba: Das Bandeiras à Revolução Industrial.</h2>
@@ -100,7 +120,6 @@
             </div>
         </section>
 
-        <!-- Seção de turismo -->
         <section class="section-turismo">
     
             <div class="turismo-header">
@@ -114,19 +133,19 @@
                 <div class="turismo-item">
                     <div class="item-imagem item-turismo-1"></div> 
                     <p class="item-titulo">Jardim Botânico</p>
-                    <p class="item-info">Natureza</p>
+                    <p class="item-info">Um dos cartões postais da cidade, ideal para passeios e fotos.</p>
                 </div>
 
                 <div class="turismo-item">
                     <div class="item-imagem item-turismo-2"></div>
                     <p class="item-titulo">Zoológico Quinzinho</p>
-                    <p class="item-info">Família</p>
+                    <p class="item-info">Reconhecido internacionalmente, oferece lazer e educação ambiental.</p>
                 </div>
 
                 <div class="turismo-item">
                     <div class="item-imagem item-turismo-3"></div>
                     <p class="item-titulo">Mosteiro de São Bento</p>
-                    <p class="item-info">Histórico</p>
+                    <p class="item-info">Marco histórico da cidade, com bela arquitetura colonial.</p>
                 </div>
                 
             </div>
@@ -166,6 +185,24 @@
                 <p>Desenvolvido com inspiração na excelência de design.</p>
             </div>
         </footer>
+        
+        <button id="back-to-top" class="botao-voltar-topo" title="Voltar ao Topo">
+            ↑
+        </button>
+        
+        <div id="modal-galeria" class="modal-galeria">
+            <div class="modal-conteudo">
+                
+                <span class="modal-fechar">&times;</span> 
+
+                <div id="modal-imagem" class="modal-imagem"></div> 
+                
+                <div class="modal-texto">
+                    <h3 id="modal-titulo"></h3>
+                    <p id="modal-descricao"></p>
+                </div>
+            </div>
+        </div>
         
     </body>
 </html>

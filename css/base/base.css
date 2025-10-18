@@ -45,9 +45,57 @@ ul {
 
 
 
+/* ======================================= */
+/*          ESTILOS DO DARK MODE           */
+/* ======================================= */
+
+.dark-mode {
+    --cor-fundo-principal: #1e1e1e; 
+    --cor-texto-principal: #e0e0e0; 
+    --cor-texto-secundario: #C8D1C7;
+    --cor-destaque: #A3B18A;
+    --cor-secundaria: #6D7E6C; 
+    --cor-acento: #9e7769; 
+    --cor-borda-menu: #363636;
+}
+
+.dark-mode .lazer-intro h2,
+.dark-mode .lazer-intro p,
+.dark-mode .item-titulo,
+.dark-mode .item-info,
+.dark-mode .turismo-header h2,
+.dark-mode .turismo-header p,
+.dark-mode .historia-intro h2,
+.dark-mode .historia-intro p {
+    color: var(--cor-texto-secundario); 
+}
+
+.dark-mode .navbar-fixa {
+    background-color: var(--cor-fundo-principal); 
+}
+
+.dark-mode .logo a,
+.dark-mode .menu-principal-links a {
+    color: var(--cor-destaque); 
+}
+
+.dark-mode .menu-principal-links a:hover { 
+    color: var(--cor-texto-secundario);
+    border-bottom: 2px solid var(--cor-texto-secundario); 
+}
+
+.dark-mode .rodape {
+    background-color: #2d3a2c; 
+}
+
+.dark-mode .rodape-faixa-inferior {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 
 /* ======================================= */
-/* 2. ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)  */
+/*   ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)   */
 /* ======================================= */
 
 .navbar-fixa {
@@ -106,6 +154,57 @@ ul {
     font-size: 1.5rem; 
     font-family: initial;
     vertical-align: middle; 
+}
+
+.menu-principal-tema {
+    margin-right: 20px; 
+}
+
+.menu-principal-tema a {
+    font-size: 1.5rem; 
+    vertical-align: middle; 
+    transition: transform 0.3s ease;
+}
+
+.menu-principal-tema a:hover {
+    transform: scale(1.1);
+}
+
+.menu-direita {
+    display: flex; 
+    align-items: center;
+    gap: 15px; 
+}
+
+.hamburger-menu {
+	display: none; 
+	cursor: pointer;
+	width: 30px;
+	height: 25px;
+	position: relative;
+	z-index: 1002; 
+	margin-right: 15px;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu span {
+	display: block;
+	width: 100%;
+	height: 3px;
+	margin-bottom: 5px;
+	background-color: var(--cor-destaque);
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.is-active span:nth-child(1) {
+	transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger-menu.is-active span:nth-child(2) {
+	opacity: 0;
+}
+.hamburger-menu.is-active span:nth-child(3) {
+	transform: rotate(-45deg) translate(5px, -6px);
 }
 
 /* ======================================= */
@@ -178,4 +277,200 @@ ul {
     padding: 15px 0;
     font-size: 0.8rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ======================================= */
+/*          BOTÃO VOLTAR AO TOPO           */
+/* ======================================= */
+
+.botao-voltar-topo {
+    display: none; 
+    position: fixed;
+    bottom: 30px; 
+    right: 30px;
+    background-color: var(--cor-destaque); 
+    color: var(--cor-fundo-principal); 
+    border: none;
+    border-radius: 5px; 
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    line-height: 1; 
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999; 
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.botao-voltar-topo:hover {
+    background-color: var(--cor-secundaria);
+    opacity: 0.9;
+}
+
+.dark-mode .botao-voltar-topo {
+    background-color: var(--cor-destaque); 
+    color: var(--cor-fundo-principal);
+}
+
+
+/* ======================================= */
+/*           ESTILOS DO MODAL/POP-UP       */
+/* ======================================= */
+
+.modal-galeria {
+    display: none; /* Oculto por padrão, será 'display: flex' via JS para mostrar */
+    position: fixed; 
+    z-index: 2000; /* Alto z-index para garantir que esteja acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite rolagem se o conteúdo for grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro transparente */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px;
+}
+
+.modal-conteudo {
+    position: relative;
+    background-color: var(--cor-fundo-principal);
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 900px; /* Largura máxima do modal */
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation-name: zoom; /* Adiciona uma animação suave */
+    animation-duration: 0.3s;
+}
+
+/* Animação para o modal aparecer */
+@keyframes zoom {
+    from {transform: scale(0.9);} 
+    to {transform: scale(1);}
+}
+
+.modal-fechar {
+    color: var(--cor-destaque);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-fechar:hover,
+.modal-fechar:focus {
+    color: var(--cor-acento);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-imagem {
+    width: 100%;
+    height: 400px; /* Altura padrão para a imagem */
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid var(--cor-borda-menu);
+}
+
+.modal-texto h3 {
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--cor-destaque);
+}
+
+.modal-texto p {
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* Ajustes de Dark Mode para o Modal */
+.dark-mode .modal-conteudo {
+    /* Garante que o fundo do modal siga o tema */
+    background-color: var(--cor-fundo-principal); 
+}
+
+.dark-mode .modal-texto h3, 
+.dark-mode .modal-texto p {
+    /* Garante que o texto seja legível no tema escuro */
+    color: var(--cor-texto-secundario);
+}
+
+/* ======================================= */
+/* 7. MEDIA QUERIES (RESPONSIVIDADE)       */
+/* ======================================= */
+
+@media (max-width: 992px) {
+    
+	/* Navbar: Ajuste geral do container */
+	.navbar-fixa {
+		padding: 15px 20px;
+	}
+    
+	/* Logo: Fica no centro do Header no mobile */
+	.logo {
+		position: static; 
+		transform: none;
+		order: 2; /* Coloca o logo no centro */
+	}
+    
+	/* Menu Lateral: Onde estão o tema e o manga */
+	.menu-direita {
+		order: 3; /* Fica na direita */
+		gap: 10px;
+	}
+    
+	/* Hamburger: Fica na extrema esquerda */
+	.hamburger-menu {
+		display: block; /* MOSTRA O HAMBURGER NO MOBILE */
+		order: 1; 
+	}
+
+	/* Menu de Links (Conteúdo Principal) */
+	.menu-principal-links {
+		display: none; /* ESCONDE O MENU POR PADRÃO */
+		position: absolute;
+		top: 65px; /* Altura do header */
+		left: 0;
+		width: 100%;
+		background-color: var(--cor-fundo-principal);
+		box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+		z-index: 990;
+		transition: all 0.3s ease;
+	}
+    
+	/* Mostra o menu quando ativado pelo JS */
+	.menu-principal-links.menu-aberto {
+		display: block;
+		border-top: 1px solid var(--cor-borda-menu);
+	}
+    
+	.menu-principal-links ul {
+		flex-direction: column; /* Lista vertical */
+		padding: 10px 0;
+	}
+    
+	.menu-principal-links ul li {
+		width: 100%;
+		text-align: center;
+		border-bottom: 1px solid var(--cor-borda-menu);
+	}
+    
+	.menu-principal-links a {
+		display: block;
+		padding: 15px 0;
+		color: var(--cor-destaque);
+	}
+    
+	.menu-principal-links a:hover { 
+		border-bottom: none;
+		background-color: rgba(0, 0, 0, 0.05); /* Efeito hover no link */
+	}
 }
