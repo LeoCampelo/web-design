@@ -1,0 +1,91 @@
+/* ======================================= */
+/* SEÇÃO PRINCIPAL                         */
+/* ======================================= */
+.section-historia-principal {
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-destaque);
+    padding: 120px 20px 60px 20px;
+    text-align: left;
+}
+
+.container-historia-principal {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-historia-principal h1 {
+    font-family: var(--fonte-principal);
+    font-size: 2.3rem;
+    color: var(--cor-destaque);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-historia-principal p {
+    font-family: var(--fonte-corpo);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--cor-destaque);
+    margin-bottom: 22px;
+    text-align: justify;
+}
+
+/* ======================================= */
+/* IMAGENS                                 */
+/* ======================================= */
+.historia-imagem-pessoal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 850px;
+}
+
+.historia-imagem-pessoal img {
+    width: 100%;
+    max-width: 750px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.legenda-imagem {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ======================================= */
+/* FAIXA DE DESTAQUE                       */
+/* ======================================= */
+.faixa-historia {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo-principal);
+    padding: 60px 20px;
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+/* ======================================= */
+/* RESPONSIVIDADE                          */
+/* ======================================= */
+@media (max-width: 768px) {
+    .section-historia-principal {
+        padding: 90px 15px 40px 15px;
+    }
+
+    .section-historia-principal h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-historia-principal p {
+        font-size: 0.95rem;
+    }
+
+    .faixa-historia {
+        font-size: 1rem;
+        padding: 40px 15px;
+    }
+}
