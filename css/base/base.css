@@ -473,4 +473,27 @@ ul {
 		border-bottom: none;
 		background-color: rgba(0, 0, 0, 0.05); /* Efeito hover no link */
 	}
+
+    .container-rodape {
+		flex-direction: column; /* Empilha as colunas */
+		gap: 30px; 
+		padding: 0 20px 30px 20px;
+	}
+
+	.rodape-coluna {
+		flex-basis: auto; /* Remove a largura fixa */
+		text-align: center;
+	}
+
+	.rodape-coluna h3 {
+		margin-bottom: 5px; 
+	}
+
+	.rodape-logo {
+		text-align: center;
+	}
+
+	.logo-rodape {
+		margin-bottom: 5px;
+	}
 }
