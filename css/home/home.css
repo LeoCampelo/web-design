@@ -372,68 +372,48 @@
 
 
 
-
 /* ======================================= */
 /* MEDIA QUERIES PARA HOME (Mobile Layout) */
 /* ======================================= */
 
 @media (max-width: 768px) {
-    
-    .container-lazer,
-    .lazer-galeria,
-    .container-turismo-galeria {
-        flex-direction: column; 
-        gap: 40px; 
-    }
-    
-    .lazer-intro {
-        flex: 0 0 auto; 
-    }
-    
-    .container-historia {
-        flex-direction: column; 
-        gap: 30px;
-    }
-    
-    .historia-intro {
-        max-width: 100%; 
-    }
-    
-    .main-conteudo h1 {
-        font-size: 2.5rem; 
-    }
-    
-    .lazer-intro h2,
-    .turismo-header h2 {
-        font-size: 2rem; 
-    }
-    
-    .section-lazer,
-    .section-historia,
-    .section-turismo {
-        padding: 50px 20px;
-    }
-
-    .container-rodape {
-        flex-direction: column; 
-        gap: 30px; 
-        padding: 0 20px 30px 20px;
-    }
-
-    .rodape-coluna {
-        flex-basis: auto; 
-        text-align: center;
-    }
-
-    .rodape-coluna h3 {
-        margin-bottom: 5px; 
-    }
-
-    .rodape-logo {
-        text-align: center;
-    }
-
-    .logo-rodape {
-        margin-bottom: 5px;
-    }
+	
+	/* Empilhamento das galerias de Lazer e Turismo */
+	.container-lazer,
+	.lazer-galeria,
+	.container-turismo-galeria {
+		flex-direction: column; 
+		gap: 40px; 
+	}
+	
+	.lazer-intro {
+		flex: 0 0 auto; /* Remove a largura fixa para ocupar 100% */
+	}
+	
+	/* Empilhamento da Seção História */
+	.container-historia {
+		flex-direction: column; 
+		gap: 30px;
+	}
+	
+	.historia-intro {
+		max-width: 100%; /* Ocupa 100% da largura */
+	}
+	
+	/* Ajuste de Fontes e Padding no Mobile */
+	.main-conteudo h1 {
+		font-size: 2.5rem; /* Reduz o título principal */
+	}
+	
+	.lazer-intro h2,
+	.turismo-header h2 {
+		font-size: 2rem; /* Reduz os títulos de seção */
+	}
+	
+	/* Ajuste de padding lateral nas seções para telas menores */
+	.section-lazer,
+	.section-historia,
+	.section-turismo {
+		padding: 50px 20px;
+	}
 }
