@@ -3,18 +3,20 @@
 
 /* Personalizações para a página de lazer */
 .lazer-section {
-    background-color: var(--cor-secundaria);
+    /* Mantém o mesmo padrão do restante do site (sem faixa verde) */
+    background-color: var(--cor-fundo-principal);
     padding: 60px 0 40px 0;
 }
 
 .lazer-conteudo {
     max-width: 900px;
     margin: 0 auto;
-    background: #fff;
-    color: #333;
-    border-radius: 16px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-    padding: 48px 32px;
+    /* Usar padrão da página de história: sem cartão branco */
+    background: transparent;
+    color: var(--cor-texto-secundario);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 32px;
 }
 
 .lazer-conteudo h1 {
@@ -31,9 +33,18 @@
 
 .lazer-subtitulo {
     font-size: 1.15rem;
-    color: var(--cor-secundaria);
+    color: var(--cor-texto-secundario);
     margin-bottom: 30px;
     font-weight: 500;
+}
+
+/* subtítulo com fonte serifada e espaçamento mais elegante */
+.lazer-subtitulo {
+    font-family: var(--fonte-principal);
+    letter-spacing: 0.2px;
+    font-size: 1.05rem;
+    color: rgba(0,0,0,0.6); /* cor escura para o tema claro */
+    margin-top: 6px;
 }
 
 .lazer-topico {
@@ -52,46 +63,66 @@
 }
 
 .lazer-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
 .card {
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: box-shadow 0.25s, transform 0.25s, opacity 0.2s;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 .card:hover {
     box-shadow: 0 8px 32px rgba(0,0,0,0.13);
     transform: translateY(-2px) scale(1.02);
 }
 
+/* Micro-animação ao tocar/clicar (útil para mobile) */
+.card:active, .card.is-animating { transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
+
 .lazer-item {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    padding: 22px;
-    gap: 32px;
+    display: block;
+    align-items: stretch;
+    background: var(--cor-fundo-principal);
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .lazer-foto {
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    height: 220px;
     object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    border: 2px solid var(--cor-borda-menu);
-    transition: box-shadow 0.2s;
-}
-.lazer-foto:hover {
-    box-shadow: 0 0 0 4px var(--cor-acento);
+    display: block;
 }
 
-.lazer-info h2 {
-    color: var(--cor-acento);
-    font-size: 1.25rem;
+.lazer-card-body {
+    padding: 16px 18px 18px 18px;
+}
+
+.lazer-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 16px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.lazer-overlay h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.lazer-info h3 {
+    color: var(--cor-texto-secundario);
+    font-size: 1.05rem;
     margin-bottom: 8px;
     font-family: var(--fonte-principal);
 }
@@ -103,15 +134,14 @@
 }
 
 .lazer-info a {
-    color: #e07a53;
-    font-weight: bold;
-    text-decoration: underline;
+    color: var(--cor-destaque);
+    font-weight: 600;
+    text-decoration: none;
     transition: color 0.2s;
-    font-size: 1.05rem;
+    font-size: 0.98rem;
 }
 .lazer-info a:hover {
-    color: var(--cor-destaque);
-    text-decoration: underline;
+    color: var(--cor-acento);
 }
 
 .lazer-divisor {
@@ -120,42 +150,142 @@
     margin: 40px 0 30px 0;
 }
 
-#voltar-topo {
-    position: fixed;
-    right: 32px;
-    bottom: 32px;
-    background: var(--cor-acento);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    cursor: pointer;
-    display: none;
-    z-index: 999;
-    transition: background 0.2s;
+/* Observação: use .botao-voltar-topo definido em base.css para consistência */
+
+/* Campo de pesquisa inserido dinamicamente pelo JS */
+.lazer-search {
+    margin-bottom: 18px;
 }
-#voltar-topo:hover {
+.lazer-search input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda-menu);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: transparent;
+    color: inherit;
+}
+.lazer-search input::placeholder {
+    color: rgba(0,0,0,0.45);
+}
+
+.lazer-search-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.lazer-search-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.botao-pequeno {
     background: var(--cor-destaque);
+    color: var(--cor-fundo-principal);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
+
+.botao-pequeno:hover { filter: brightness(0.95); }
+
+.lazer-card-body h3 { margin: 0 0 6px 0; }
+.lazer-card-body p { margin: 0 0 8px 0; color: rgba(0,0,0,0.65); line-height: 1.45; }
+
+/* Espaçamento inferior para evitar que o footer sobreponha */
+.lazer-section { padding-bottom: 100px; }
+
+/* Faz a faixa extra neutra para não contrastar com o resto */
+.faixa-extra { background-color: rgba(0,0,0,0.04); color: var(--cor-texto-secundario); }
+
+/* Ajustes para modo escuro: sobrescrever cores quando .dark-mode está ativo */
+.dark-mode .lazer-subtitulo { color: rgba(255,255,255,0.88); }
+.dark-mode .lazer-card-body p { color: rgba(255,255,255,0.72); }
+
+/* Input visível em tema claro */
+.lazer-search input { background: rgba(255,255,255,0.92); color: #333; }
+.dark-mode .lazer-search input { background: transparent; color: inherit; }
+
+/* Link de localização mais visível */
+.lazer-info a { color: var(--cor-acento); font-weight: 700; }
+
+/* Hover overlay effect */
+.card:hover .lazer-overlay { opacity: 1; transform: translateY(0); }
+.lazer-overlay { opacity: 0; transform: translateY(8px); transition: all 0.25s ease; }
+
+/* Ajustes para placeholder no dark-mode */
+.dark-mode .lazer-search input::placeholder {
+    color: rgba(255,255,255,0.55);
+}
+
+/* Controles do modal (prev/next) */
+.modal-controles {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.modal-controles button {
+    background: var(--cor-destaque);
+    color: var(--cor-fundo-principal);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.modal-controles button:hover {
+    background: var(--cor-secundaria);
+}
+
+/* Ajuste de botões do modal: ícones e tamanho reduzido */
+.modal-controles button {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* Pequenos ajustes visuais para o card quando o conteúdo é apenas imagem */
+.lazer-item .lazer-foto { display: block; }
+
+/* Estado de não-encontrado */
+.lazer-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--cor-texto-secundario);
+    padding: 20px 10px;
+}
+
 
 @media (max-width: 700px) {
     .lazer-conteudo {
         padding: 18px 6px;
     }
+    .lazer-lista { grid-template-columns: 1fr; gap: 18px; }
     .lazer-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 14px;
+        display: block;
     }
     .lazer-foto {
         width: 100%;
         height: 180px;
         border-radius: 10px;
     }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    .lazer-lista { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1101px) {
+    .lazer-lista { grid-template-columns: repeat(3, 1fr); }
 }
 .ativo {
     color: var(--cor-acento) !important;

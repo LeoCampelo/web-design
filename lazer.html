@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/lazer/lazer.css">
 </head>
 <body>
-    <!-- Header fixo igual ao home -->
+    <!-- Header (mesmo da home) -->
     <header class="navbar-fixa">
         <nav class="menu-principal-links">
             <ul>
@@ -17,13 +17,31 @@
                 <li><a href="pontos-turisticos.html">Pontos Turísticos</a></li>
             </ul>
         </nav>
+
         <div class="logo">
             <a href="home.html">SOROCABA</a>
         </div>
-        <div class="menu-principal-icone">
-            <a href="#" title="Link para o Manga">
-                <span class="emoji-manga" aria-hidden="true">🥭</span>
-            </a>
+
+        <div class="menu-direita">
+
+            <div class="hamburger-menu" id="toggle-menu-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="menu-principal-tema">
+                <a href="#" id="toggle-dark-mode" title="Alternar Modo Claro/Escuro">
+                    <span id="theme-icon" aria-hidden="true">🌙</span>
+                </a>
+            </div>
+
+            <div class="menu-principal-icone">
+                <a href="#" title="Link para o Manga">
+                    <span class="emoji-manga" aria-hidden="true">🥭</span>
+                </a>
+            </div>
+
         </div>
     </header>
 
@@ -32,6 +50,7 @@
             <div class="lazer-conteudo">
                 <h1>Lazer em Sorocaba</h1>
                 <p class="lazer-subtitulo">Encontre os melhores lugares para comer, relaxar e se hospedar na cidade!</p>
+                <div id="lazer-search-controls" aria-hidden="true"></div>
 
                 <!-- 🍽 Restaurantes / Bares / Gastronomia -->
                 <h2 class="lazer-topico"><span class="lazer-icone">🍽</span> Restaurantes / Bares / Gastronomia</h2>
@@ -182,8 +201,26 @@
                 </ul>
             </div>
         </section>
-        <button id="voltar-topo" title="Voltar ao topo">↑</button>
+        <button id="back-to-top" class="botao-voltar-topo" title="Voltar ao Topo">↑</button>
     </main>
+
+    <!-- Modal de galeria (reutilizável) -->
+    <div id="modal-galeria" class="modal-galeria" aria-hidden="true" role="dialog" aria-label="Galeria de imagens">
+        <div class="modal-conteudo">
+            <button class="modal-fechar" aria-label="Fechar janela">&times;</button>
+            <div class="modal-imagem">
+                <img id="modal-image" src="" alt="Imagem da galeria">
+            </div>
+            <div class="modal-texto">
+                <h3 id="modal-titulo"></h3>
+                <p id="modal-descricao"></p>
+            </div>
+            <div class="modal-controles">
+                <button id="modal-prev" aria-label="Imagem anterior">◀</button>
+                <button id="modal-next" aria-label="Próxima imagem">▶</button>
+            </div>
+        </div>
+    </div>
 
     <section class="faixa-extra">
         <div class="container-faixa">
@@ -228,13 +265,8 @@
         </div>
     </footer>
     
-    <script>
-        // Botão voltar ao topo
-        const btn = document.getElementById('voltar-topo');
-        btn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-        window.addEventListener('scroll', () => {
-            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/base/base.js" defer></script>
+    <script src="js/lazer/lazer.js" defer></script>
 </body>
 </html>
