@@ -10,14 +10,10 @@
     </head>
 
     <body>
-        <script src="https://unpkg.com/scrollreveal"></script> 
-        <script src="js/base/base.js" defer></script> 
-        <script src="js/home/home.js" defer></script> 
-
         <header class="navbar-fixa">
             <nav class="menu-principal-links">
                 <ul>
-                    <li><a href="lazer.html" class="ativo">Lazer</a></li>
+                    <li><a href="lazer.html">Lazer</a></li>
                     <li><a href="historia.html">História</a></li>
                     <li><a href="pontos-turisticos.html">Pontos Turísticos</a></li>
                 </ul>
@@ -39,7 +35,7 @@
                     </a>
                 </div>
                 <div class="menu-principal-icone">
-                    <a href="manga.html" title="Link para o Manga">
+                    <a href="manga.html" title="Página do Manga">
                         <span class="emoji-manga" aria-hidden="true">🥭</span>
                     </a>
                 </div>
@@ -74,19 +70,19 @@
                 <div class="lazer-galeria">
                     
                     <div class="lazer-item">
-                        <div class="item-imagem item-imagem-1"></div> 
+                        <img class="item-imagem-placeholder" src="midia/img_home/parque-das-aguas.jpeg" alt="Parque das Águas">
                         <p class="item-titulo">Parque das Águas</p>
                         <p class="item-info">Parques, lazer ao ar livre e grandes eventos.</p>
                     </div>
 
                     <div class="lazer-item">
-                        <div class="item-imagem item-imagem-2"></div>
+                        <img class="item-imagem-placeholder" src="midia/img_home/ciclovia.jpg" alt="Ciclovia de Sorocaba">
                         <p class="item-titulo">Ciclovia</p>
                         <p class="item-info">Mais de 120km de vias para esporte e saúde.</p>
                     </div>
 
                     <div class="lazer-item">
-                        <div class="item-imagem item-imagem-3"></div>
+                        <img class="item-imagem-placeholder" src="midia/img_home/iguatemi-esplanada.jpg" alt="Shopping Iguatemi Esplanada">
                         <p class="item-titulo">Shopping Iguatemi</p>
                         <p class="item-info">Centro de compras, cinema e gastronomia de alto nível.</p>
                     </div>
@@ -99,8 +95,8 @@
         <section class="section-historia">
             <div class="container-historia">
 
-                    <div class="historia-coluna-esquerda">
-                    <div class="historia-imagem"></div>
+                <div class="historia-coluna-esquerda">
+                    <img class="historia-imagem-placeholder" src="midia/img_home/historia-sorocaba.png" alt="Estação Ferroviária de Sorocaba">
                     <div class="historia-imagem-legenda">
                         <h4>Estação Ferroviária de Sorocaba</h4>
                         <p>O coração do ciclo Tropeiro e Industrial no início do século XX.</p>
@@ -127,19 +123,19 @@
             <div class="container-turismo-galeria">
                 
                 <div class="turismo-item">
-                    <div class="item-imagem item-turismo-1"></div> 
+                    <img class="item-imagem-placeholder" src="midia/img_home/jardim-botanico.jpg" alt="Jardim Botânico de Sorocaba">
                     <p class="item-titulo">Jardim Botânico</p>
                     <p class="item-info">Um dos cartões postais da cidade, ideal para passeios e fotos.</p>
                 </div>
 
                 <div class="turismo-item">
-                    <div class="item-imagem item-turismo-2"></div>
+                    <img class="item-imagem-placeholder" src="midia/img_home/zoologico-quinzinho.jpg" alt="Zoológico Quinzinho de Barros">
                     <p class="item-titulo">Zoológico Quinzinho</p>
                     <p class="item-info">Reconhecido internacionalmente, oferece lazer e educação ambiental.</p>
                 </div>
 
                 <div class="turismo-item">
-                    <div class="item-imagem item-turismo-3"></div>
+                    <img class="item-imagem-placeholder" src="midia/img_home/mosteiro-sao-bento.jpeg" alt="Mosteiro de São Bento">
                     <p class="item-titulo">Mosteiro de São Bento</p>
                     <p class="item-info">Marco histórico da cidade, com bela arquitetura colonial.</p>
                 </div>
@@ -191,7 +187,9 @@
                 
                 <span class="modal-fechar">&times;</span> 
 
-                <div id="modal-imagem" class="modal-imagem"></div> 
+                <div class="modal-imagem">
+                    <img id="modal-image" src="" alt="Imagem Ampliada">
+                </div>
                 
                 <div class="modal-texto">
                     <h3 id="modal-titulo"></h3>
@@ -200,5 +198,8 @@
             </div>
         </div>
         
+        <script src="https://unpkg.com/scrollreveal"></script> 
+        <script src="js/base/base.js" defer></script> 
+        <script src="js/home/home.js" defer></script> 
     </body>
 </html>
