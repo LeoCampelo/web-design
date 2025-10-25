@@ -1,25 +1,33 @@
+// js/home/home.js
+
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------------------------------
-    // 3. ANIMAÇÕES SCROLLREVEAL (NOVA FUNCIONALIDADE)
-    // ----------------------------------------------------------------
+
+    // ================================================================
+    // 1. ANIMAÇÕES SCROLLREVEAL (MANTIDO)
+    // ================================================================
     if (typeof ScrollReveal !== 'undefined') {
         
         const sr = ScrollReveal({
             distance: '50px', 
-            duration: 1200,    
+            duration: 1200, 
             easing: 'ease-out',
-            reset: false       
+            reset: false 
         });
 
+        // Animação da Home Page 
+        sr.reveal('.main-section .main-conteudo', { origin: 'top' });
+        sr.reveal('.faixa-extra', { origin: 'bottom', delay: 150 });
+        
         sr.reveal('.lazer-intro', { origin: 'left' });
         sr.reveal('.lazer-galeria .lazer-item', { 
             origin: 'bottom',
-            interval: 250, 
-            delay: 300     
+            interval: 200, 
+            delay: 300 
         });
 
-        sr.reveal('.historia-imagem', { origin: 'left', delay: 200 });
+        sr.reveal('.historia-coluna-esquerda', { origin: 'left' });
         sr.reveal('.historia-intro', { origin: 'right', delay: 200 });
+        
         sr.reveal('.turismo-header', { origin: 'top' });
         sr.reveal('.container-turismo-galeria .turismo-item', { 
             origin: 'bottom',
@@ -27,75 +35,94 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 300 
         });
         
+        sr.reveal('.rodape', { origin: 'bottom', duration: 800, distance: '20px', delay: 100 });
     }
-
-    // ================================================================
-    // 2. MODAL DE GALERIA (Pop-up de Imagem) - REVISADO PARA HISTÓRIA
-    // ================================================================
-    const modal = document.getElementById('modal-galeria');
-    const fecharBtn = document.querySelector('.modal-fechar');
-    const modalImagem = document.getElementById('modal-imagem');
-    const modalTitulo = document.getElementById('modal-titulo');
-    const modalDescricao = document.getElementById('modal-descricao');
     
-    // Seleciona todos os itens que podem abrir o modal (ADICIONADO .historia-coluna-esquerda)
+    // ================================================================
+    // 2. MODAL DE GALERIA (Pop-up de Imagem) - AGORA LÊ O SRC DA TAG <img>
+    // ================================================================
+    
+    const modal = document.getElementById('modal-galeria');
+    const fecharBtn = modal ? document.querySelector('.modal-fechar') : null;
+    const modalContainerImagem = modal ? document.querySelector('.modal-imagem') : null; // Div container da imagem
+    const modalImagem = modal ? document.getElementById('modal-image') : null; // A tag IMG dentro do modal
+    const modalTitulo = modal ? document.getElementById('modal-titulo') : null;
+    const modalDescricao = modal ? document.getElementById('modal-descricao') : null;
+    
+    // Seleciona todos os itens clicáveis que abrem o modal
     const itensGaleria = document.querySelectorAll('.lazer-item, .turismo-item, .historia-coluna-esquerda');
-
-    // Função auxiliar para extrair a URL de background-image (necessário devido ao CSS)
-    function getBackgroundImageUrl(element) {
-        const style = window.getComputedStyle(element);
-        const url = style.backgroundImage;
-        return url.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-    }
 
     // A. Adiciona o Listener de clique em todos os itens
     itensGaleria.forEach(item => {
         item.addEventListener('click', () => {
-            let titulo, descricao, imagemDiv;
+            let titulo, descricao, imagemElement;
 
             // 1. Lógica para extrair os dados dependendo do elemento clicado
             if (item.classList.contains('historia-coluna-esquerda')) {
-                // Se for a seção História, busca os elementos dentro da estrutura dela
+                // Seção História
                 titulo = item.querySelector('.historia-imagem-legenda h4').textContent;
                 descricao = item.querySelector('.historia-imagem-legenda p').textContent;
-                imagemDiv = item.querySelector('.historia-imagem');
+                imagemElement = item.querySelector('.historia-imagem-placeholder');
             } else {
-                // Se for as galerias de Lazer ou Turismo, usa a estrutura padrão
+                // Galerias de Lazer ou Turismo
                 titulo = item.querySelector('.item-titulo').textContent;
                 descricao = item.querySelector('.item-info').textContent;
-                imagemDiv = item.querySelector('.item-imagem');
+                imagemElement = item.querySelector('.item-imagem-placeholder');
             }
             
-            // 2. Obtém a URL da imagem de fundo
-            const imageUrl = getBackgroundImageUrl(imagemDiv);
+            const imageUrl = imagemElement ? imagemElement.src : '';
+            const altText = imagemElement ? imagemElement.alt : 'Imagem';
 
             // 3. Preenche o conteúdo do modal
-            modalImagem.style.backgroundImage = `url('${imageUrl}')`;
-            modalTitulo.textContent = titulo;
-            modalDescricao.textContent = descricao;
+            if (modalImagem && modalTitulo && modalDescricao && modalContainerImagem) {
+                
+                // Adiciona a classe de loading
+                modalContainerImagem.classList.add('loading');
+                modalImagem.classList.remove('loaded');
+                
+                // Atualiza a imagem, garantindo o evento de 'load'
+                modalImagem.onload = () => {
+                    modalContainerImagem.classList.remove('loading');
+                    modalImagem.classList.add('loaded');
+                };
+                modalImagem.onerror = () => {
+                    modalContainerImagem.classList.remove('loading');
+                    modalDescricao.textContent = "Erro ao carregar a imagem.";
+                };
+                
+                modalImagem.src = imageUrl;
+                modalImagem.alt = altText;
+                modalTitulo.textContent = titulo;
+                modalDescricao.textContent = descricao;
 
-            // 4. Exibe o modal
-            modal.style.display = 'flex';
+                // 4. Exibe o modal
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Bloqueia o scroll
+            }
         });
     });
 
     // B. Lógica para fechar o modal
-    // 1. Ao clicar no 'X'
-    fecharBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // 2. Ao clicar fora do modal (na área escura)
-    window.addEventListener('click', (event) => {
-        if (event.target == modal) {
+    if (modal && fecharBtn) {
+        fecharBtn.addEventListener('click', () => {
             modal.style.display = 'none';
-        }
-    });
+            document.body.style.overflow = '';
+        });
 
-    // 3. Ao pressionar a tecla ESC
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            modal.style.display = 'none';
-        }
-    });
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Nota: O código de Dark Mode e Voltar ao Topo é herdado do base.js
 });
