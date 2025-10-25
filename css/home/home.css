@@ -1,5 +1,5 @@
 /* ======================================= */
-/*      SEÇÃO PRINCIPAL DE DESTAQUE        */
+/* SEÇÃO PRINCIPAL DE DESTAQUE             */
 /* ======================================= */
 
 .main-section {
@@ -49,10 +49,8 @@
 }
 
 
-
-
 /* ======================================= */
-/*      SEÇÃO DE FAIXA EXTRA (Faixa)       */
+/* SEÇÃO DE FAIXA EXTRA (Faixa)            */
 /* ======================================= */
 
 .faixa-extra {
@@ -70,7 +68,7 @@
 
 
 /* ======================================= */
-/*              SEÇÃO LAZER                */
+/* SEÇÃO LAZER                             */
 /* ======================================= */
 
 .section-lazer {
@@ -136,27 +134,19 @@
     z-index: 1; 
 }
 
-.item-imagem {
+/* NOVO: Estilo para a tag <img> que substitui o div com background-image */
+.lazer-item .item-imagem-placeholder,
+.turismo-item .item-imagem-placeholder {
     width: 100%;
-    height: 350px; 
-    background-color: var(--cor-texto-secundario); 
+    height: 350px; /* Mantém a altura anterior do div */
+    object-fit: cover; /* Garante que a imagem preencha a área sem distorcer */
+    display: block;
     margin-bottom: 10px;
-    background-size: cover;
-    background-position: center;
+    background-color: var(--cor-texto-secundario); /* Cor de fallback/loading */
     border-bottom: 2px solid var(--cor-destaque);
 }
 
-.item-imagem-1 { 
-    background-image: url('../../midia/img_home/parque-das-aguas.jpeg'); 
-} 
-
-.item-imagem-2 { 
-    background-image: url('../../midia/img_home/ciclovia.jpg'); 
-}
-
-.item-imagem-3 { 
-    background-image: url('../../midia/img_home/iguatemi-esplanada.jpg'); 
-}
+/* REMOVIDO: item-imagem e suas classes específicas (item-imagem-1, etc.) */
 
 .item-titulo {
     font-weight: bold;
@@ -171,96 +161,94 @@
 }
 
 
-
 /* ======================================= */
-/*             SEÇÃO HISTÓRIA 			   */
+/* SEÇÃO HISTÓRIA                          */
 /* ======================================= */
 
 .section-historia {
-	background-color: var(--cor-acento); 
-	padding: 80px 50px;
+    background-color: var(--cor-acento); 
+    padding: 80px 50px;
 }
 
 .container-historia {
-	display: flex;
-	gap: 50px; 
-	max-width: 1400px;
-	margin: 0 auto;
-	align-items: center; 
+    display: flex;
+    gap: 50px; 
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center; 
 }
 
 .historia-coluna-esquerda {
-	flex: 1; 
-	padding-bottom: 5px; 
+    flex: 1; 
+    padding-bottom: 5px; 
 }
 
-/* Estilo da Imagem */
-.historia-imagem {
-	width: 100%; /* Ocupa toda a largura do seu container */
-	height: 500px; 
-	background-image: url('../../midia/img_home/historia-sorocaba.png'); 
-	background-size: cover;
-	background-position: center;
-	margin-bottom: 10px; /* Espaço entre imagem e legenda */
+/* NOVO: Estilo para a tag <img> da Seção História */
+.historia-coluna-esquerda .historia-imagem-placeholder {
+    width: 100%; /* Ocupa toda a largura do seu container */
+    height: 500px; 
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px; /* Espaço entre imagem e legenda */
 }
 
-/* NOVO: Estilização da Legenda (igual aos cards de Lazer/Turismo) */
+/* REMOVIDO: .historia-imagem (Div com background-image) */
+
+/* Estilo da Legenda */
 .historia-imagem-legenda {
-	text-align: left;
+    text-align: left;
 }
 
 .historia-imagem-legenda h4 {
-	font-weight: bold;
-	font-size: 1.05rem;
-	margin-bottom: 3px;
-	color: var(--cor-texto-secundario);
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 3px;
+    color: var(--cor-texto-secundario);
 }
 
 .historia-imagem-legenda p {
-	font-size: 0.9rem;
-	color: #888;
+    font-size: 0.9rem;
+    color: #888;
 }
 
 .historia-intro {
-	flex: 1; 
-	max-width: 50%; 
+    flex: 1; 
+    max-width: 50%; 
 }
 
 .historia-intro h2 {
-	font-family: var(--fonte-principal);
-	font-size: 3rem; 
-	line-height: 1.1;
-	margin-bottom: 20px;
-	color: var(--cor-texto-secundario); 
+    font-family: var(--fonte-principal);
+    font-size: 3rem; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--cor-texto-secundario); 
 }
 
 .historia-intro p {
-	font-size: 1.1rem;
-	margin-bottom: 30px;
-	color: var(--cor-texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--cor-texto-secundario);
 }
 
 .botao-historia {
-	display: inline-block;
-	padding: 12px 30px;
-	background-color: var(--cor-texto-secundario); 
-	color: var(--cor-fundo-principal); /* Texto claro */
-	font-family: var(--fonte-corpo);
-	font-weight: bold;
-	text-transform: uppercase;
-	border: none;
-	transition: background-color 0.3s ease;
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cor-texto-secundario); 
+    color: var(--cor-fundo-principal); /* Texto claro */
+    font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .botao-historia:hover {
-	background-color: #576556; 
+    background-color: #576556; 
 }
 
 
-
-
 /* ======================================= */
-/*        SEÇÃO PONTOS TURÍSTICOS          */
+/* SEÇÃO PONTOS TURÍSTICOS                 */
 /* ======================================= */
 
 .section-turismo {
@@ -322,23 +310,13 @@
 }
 
 
-.turismo-item .item-imagem {
-    height: 400px; 
+.turismo-item .item-imagem-placeholder {
+    height: 400px; /* Mais alto para Turismo */
     background-color: var(--cor-borda-menu); 
     border-bottom: 2px solid var(--cor-destaque); 
 }
 
-.item-turismo-1 { 
-    background-image: url('../../midia/img_home/jardim-botanico.jpg'); 
-} 
-
-.item-turismo-2 { 
-    background-image: url('../../midia/img_home/zoologico-quinzinho.jpg'); 
-}
-
-.item-turismo-3 { 
-    background-image: url('../../midia/img_home/mosteiro-sao-bento.jpeg'); 
-}
+/* REMOVIDO: classes item-turismo-1, item-turismo-2, item-turismo-3 */
 
 .dark-mode .section-historia .historia-intro h2,
 .dark-mode .section-historia .historia-intro p {
@@ -346,10 +324,8 @@
 }
 
 
-
-
 /* ======================================= */
-/*            EFEITOS DE HOVER             */
+/* EFEITOS DE HOVER                        */
 /* ======================================= */
 
 .lazer-item,
@@ -371,49 +347,48 @@
 }
 
 
-
 /* ======================================= */
 /* MEDIA QUERIES PARA HOME (Mobile Layout) */
 /* ======================================= */
 
 @media (max-width: 768px) {
-	
-	/* Empilhamento das galerias de Lazer e Turismo */
-	.container-lazer,
-	.lazer-galeria,
-	.container-turismo-galeria {
-		flex-direction: column; 
-		gap: 40px; 
-	}
-	
-	.lazer-intro {
-		flex: 0 0 auto; /* Remove a largura fixa para ocupar 100% */
-	}
-	
-	/* Empilhamento da Seção História */
-	.container-historia {
-		flex-direction: column; 
-		gap: 30px;
-	}
-	
-	.historia-intro {
-		max-width: 100%; /* Ocupa 100% da largura */
-	}
-	
-	/* Ajuste de Fontes e Padding no Mobile */
-	.main-conteudo h1 {
-		font-size: 2.5rem; /* Reduz o título principal */
-	}
-	
-	.lazer-intro h2,
-	.turismo-header h2 {
-		font-size: 2rem; /* Reduz os títulos de seção */
-	}
-	
-	/* Ajuste de padding lateral nas seções para telas menores */
-	.section-lazer,
-	.section-historia,
-	.section-turismo {
-		padding: 50px 20px;
-	}
+    
+    /* Empilhamento das galerias de Lazer e Turismo */
+    .container-lazer,
+    .lazer-galeria,
+    .container-turismo-galeria {
+        flex-direction: column; 
+        gap: 40px; 
+    }
+    
+    .lazer-intro {
+        flex: 0 0 auto; /* Remove a largura fixa para ocupar 100% */
+    }
+    
+    /* Empilhamento da Seção História */
+    .container-historia {
+        flex-direction: column; 
+        gap: 30px;
+    }
+    
+    .historia-intro {
+        max-width: 100%; /* Ocupa 100% da largura */
+    }
+    
+    /* Ajuste de Fontes e Padding no Mobile */
+    .main-conteudo h1 {
+        font-size: 2.5rem; /* Reduz o título principal */
+    }
+    
+    .lazer-intro h2,
+    .turismo-header h2 {
+        font-size: 2rem; /* Reduz os títulos de seção */
+    }
+    
+    /* Ajuste de padding lateral nas seções para telas menores */
+    .section-lazer,
+    .section-historia,
+    .section-turismo {
+        padding: 50px 20px;
+    }
 }
