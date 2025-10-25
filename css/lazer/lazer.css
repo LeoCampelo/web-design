@@ -1,164 +1,268 @@
-/* Importa a base */
-@import url("../base/base.css");
-
-/* Personalizações para a página de lazer */
-.lazer-section {
-    background-color: var(--cor-secundaria);
-    padding: 60px 0 40px 0;
+/* ======================================= */
+/* 1. LAYOUT GERAL E CORES ALTERNADAS      */
+/* ======================================= */
+.lazer-bloco,
+.lazer-intro-banner {
+	padding: 80px 50px; 
+	color: var(--cor-texto-secundario);
 }
 
-.lazer-conteudo {
-    max-width: 900px;
-    margin: 0 auto;
-    background: #fff;
-    color: #333;
-    border-radius: 16px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-    padding: 48px 32px;
+.lazer-intro-banner {
+	/* Padding para o banner, que define a margem esquerda de 50px */
+	padding: 140px 50px 100px 50px; 
+    
+    /* IMAGEM DE FUNDO COM OVERLAY ESCURO */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+					  url('../../midia/img_lazer/parque-banner.jpg'); 
+    background-size: cover;
+    background-position: center 80%; 
+    background-repeat: no-repeat;
+
+    /* GARANTE ALINHAMENTO À ESQUERDA NO BANNER */
+    color: var(--cor-texto-principal);
+    text-align: left;
 }
 
-.lazer-conteudo h1 {
-    color: var(--cor-destaque);
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    font-family: var(--fonte-principal);
+/* NOVO: Descentraliza o container de conteúdo no banner */
+.lazer-intro-banner .lazer-conteudo {
+    max-width: 100%; 
+    margin: 0; /* Remove a centralização (0 auto) */
+    padding: 0;
 }
 
-.lazer-conteudo p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+.lazer-bloco {
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
-.lazer-subtitulo {
-    font-size: 1.15rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 30px;
-    font-weight: 500;
+
+/* --------------------------------------- */
+/* TIPOGRAFIA DO BANNER                    */
+/* --------------------------------------- */
+
+.lazer-intro-banner h1 {
+	color: var(--cor-texto-principal); 
+	font-size: 3.8rem;
+	margin-bottom: 10px;
+	font-family: var(--fonte-principal);
+	max-width: 600px;
+    text-align: left;
+}
+
+.lazer-intro-banner .lazer-subtitulo,
+.lazer-intro-banner p {
+    color: var(--cor-texto-principal); 
+	font-size: 1.3rem; 
+	margin-bottom: 30px;
+	font-family: var(--fonte-corpo);
+	max-width: 800px;
+	margin-left: 0;
+	margin-right: auto;
+    text-align: left;
 }
 
 .lazer-topico {
-    font-size: 1.4rem;
-    margin: 40px 0 20px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--cor-destaque);
-    font-family: var(--fonte-principal);
+	font-size: 1.8rem;
+	margin: 0 0 30px 0; 
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--cor-destaque);
+	font-family: var(--fonte-principal);
 }
 
 .lazer-icone {
-    font-size: 1.7em;
-    vertical-align: middle;
+	font-size: 1.8em;
+	vertical-align: middle;
+}
+
+/* --------------------------------------- */
+/* FAIXAS ALTERNADAS DE COR                */
+/* --------------------------------------- */
+
+.bloco-fundo-principal {
+	background-color: var(--cor-fundo-principal);
+}
+
+.bloco-fundo-acento {
+	background-color: var(--cor-acento);
+}
+
+/* Garante a cor do texto sobre o fundo ACENTO */
+.bloco-fundo-acento .lazer-subtitulo,
+.bloco-fundo-acento .lazer-info p {
+    color: var(--cor-texto-secundario);
+}
+
+.faixa-extra { 
+    background-color: var(--cor-secundaria); 
+    color: var(--cor-fundo-principal); 
+    padding: 20px 50px; 
+    text-align: center;
+}
+
+/* ======================================= */
+/* 2. LAYOUT DE GRID (RESTAURADO)          */
+/* ======================================= */
+
+.lazer-conteudo {
+	max-width: 1200px; 
+	margin: 0 auto;
+	padding: 0;
 }
 
 .lazer-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); 
+	gap: 30px; 
 }
 
-.card {
-    transition: box-shadow 0.2s, transform 0.2s;
-    cursor: pointer;
-}
-.card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-    transform: translateY(-2px) scale(1.02);
-}
-
+/* Card Item */
 .lazer-item {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    padding: 22px;
-    gap: 32px;
+	display: flex;
+	flex-direction: column;
+	background: var(--cor-fundo-principal);
+	border-radius: 6px; 
+	padding: 0;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+	transition: box-shadow 0.25s, transform 0.25s, opacity 0.2s;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+    height: 100%;
+}
+
+.card:hover {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+	transform: translateY(-5px); 
+	z-index: 10;
 }
 
 .lazer-foto {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    border: 2px solid var(--cor-borda-menu);
-    transition: box-shadow 0.2s;
-}
-.lazer-foto:hover {
-    box-shadow: 0 0 0 4px var(--cor-acento);
+	width: 100%;
+	height: 250px; 
+	object-fit: cover;
+	display: block;
+	border-radius: 6px 6px 0 0;
 }
 
-.lazer-info h2 {
-    color: var(--cor-acento);
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-    font-family: var(--fonte-principal);
+.lazer-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.lazer-info h3 {
+	color: var(--cor-destaque);
+	font-size: 1.15rem;
+	margin-bottom: 8px;
+	font-family: var(--fonte-principal);
 }
 
 .lazer-info p {
-    color: #444;
-    font-size: 1rem;
-    margin-bottom: 8px;
+	color: var(--cor-texto-secundario); 
+	font-size: 1rem;
+	margin-bottom: 12px;
+	line-height: 1.4;
 }
 
 .lazer-info a {
-    color: #e07a53;
-    font-weight: bold;
-    text-decoration: underline;
-    transition: color 0.2s;
-    font-size: 1.05rem;
-}
-.lazer-info a:hover {
-    color: var(--cor-destaque);
-    text-decoration: underline;
+	color: var(--cor-acento); 
+	font-weight: bold;
+	font-size: 0.95rem;
 }
 
-.lazer-divisor {
-    border: none;
-    border-top: 2px dashed var(--cor-acento);
-    margin: 40px 0 30px 0;
+
+/* ======================================= */
+/* 3. FILTRO E BUSCA                       */
+/* ======================================= */
+
+.lazer-search-controls {
+	max-width: 450px; 
+	margin-bottom: 25px;
+	margin-left: 0; 
+	margin-right: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-#voltar-topo {
-    position: fixed;
-    right: 32px;
-    bottom: 32px;
-    background: var(--cor-acento);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    cursor: pointer;
-    display: none;
-    z-index: 999;
-    transition: background 0.2s;
+.lazer-search-label {
+	display: block;
+	color: var(--cor-texto-principal);
+	font-size: 1rem;
+	margin-bottom: 5px; 
+	font-weight: bold;
+    text-align: left;
 }
-#voltar-topo:hover {
-    background: var(--cor-destaque);
+
+.lazer-input-group {
+	display: flex;
+	gap: 15px; 
+	align-items: stretch; 
+	max-width: 700px; 
+}
+
+.lazer-search {
+	flex-grow: 1;
+}
+
+.lazer-search input {
+	width: 100%;
+	padding: 11px 16px; 
+	border: 1px solid var(--cor-texto-principal); 
+	border-radius: 8px;
+	font-size: 1rem;
+	background: rgba(255, 255, 255, 0.15);
+	color: var(--cor-texto-principal);
+}
+
+.botao-pequeno {
+	background: var(--cor-destaque);
+	color: var(--cor-fundo-principal);
+	border: none;
+	padding: 11px 18px; 
+	border-radius: 8px;
+	font-weight: bold;
+	align-self: stretch; 
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+
+/* ======================================= */
+/* 4. DARK MODE E RESPONSIVIDADE           */
+/* ======================================= */
+
+/* Dark Mode (mantido) */
+.dark-mode .lazer-bloco.bloco-fundo-acento { background-color: #282828; }
+.dark-mode .lazer-item { box-shadow: 0 4px 10px rgba(255,255,255,0.08); background-color: #282828; }
+/* ... (outras regras Dark Mode) ... */
+
+/* Responsividade */
+@media (max-width: 1100px) {
+    /* TABLET: 2 COLUNAS DE GRID */
+    .lazer-section { padding: 80px 30px 80px 30px; }
+	.lazer-lista { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
 @media (max-width: 700px) {
-    .lazer-conteudo {
-        padding: 18px 6px;
+    /* MOBILE: 1 COLUNA DE GRID */
+    .lazer-section { padding: 75px 20px 80px 20px; }
+	.lazer-lista { grid-template-columns: 1fr; gap: 20px; }
+    
+    /* Ajuste de Padding para o Banner no Mobile */
+    .lazer-intro-banner { 
+        padding-left: 20px; 
+        padding-right: 20px;
+        padding-top: 100px; /* Garante que não fique debaixo da navbar */
     }
-    .lazer-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 14px;
-    }
-    .lazer-foto {
-        width: 100%;
-        height: 180px;
-        border-radius: 10px;
-    }
-}
-.ativo {
-    color: var(--cor-acento) !important;
-    font-weight: bold;
-    border-bottom: 2px solid var(--cor-acento);
+    .lazer-intro-banner h1 { font-size: 2.5rem; }
+    .lazer-info h3 { font-size: 1.1rem; }
+    
+    /* Controles de Busca no Mobile: Ocupa a largura total */
+    .lazer-search-controls { max-width: 100%; }
+    .lazer-input-group { max-width: 100%; }
 }

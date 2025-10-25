@@ -338,8 +338,8 @@ ul {
     margin: auto;
     padding: 20px;
     border-radius: 8px;
-    max-width: 900px; /* Largura máxima do modal */
-    width: 90%;
+    max-width: 1000px; /* Largura máxima do modal */
+    width: 92%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     animation-name: zoom; /* Adiciona uma animação suave */
     animation-duration: 0.3s;
@@ -352,32 +352,93 @@ ul {
 }
 
 .modal-fechar {
-    color: var(--cor-destaque);
+    background: rgba(255,255,255,0.95);
+    color: var(--cor-acento);
     position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    transition: 0.3s;
+    top: 12px;
+    right: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    transition: transform 0.18s ease;
     cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    z-index: 60;
 }
 
 .modal-fechar:hover,
 .modal-fechar:focus {
+    transform: scale(1.03);
     color: var(--cor-acento);
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .modal-imagem {
     width: 100%;
-    height: 400px; /* Altura padrão para a imagem */
+    height: auto;
+    max-height: 60vh; /* Limita altura para caber na viewport */
     background-size: cover;
     background-position: center;
     border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid var(--cor-borda-menu);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative; /* necessário para o spinner */
 }
+
+.modal-imagem img {
+    max-width: 100%;
+    max-height: 58vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Loader visual dentro do modal-imagem quando a imagem estiver carregando */
+.modal-imagem.loading::after {
+    content: '';
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.14);
+    border-top-color: var(--cor-destaque);
+    animation: spin 1s linear infinite;
+    z-index: 30;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Imagem com transição suave ao aparecer */
+.modal-imagem img { opacity: 0; transition: opacity 260ms ease-in-out, transform 260ms ease-in-out; transform: scale(0.98); }
+.modal-imagem img.loaded { opacity: 1; transform: scale(1); }
+
+/* Melhor aspecto do botão fechar: círculo discreto */
+.modal-fechar {
+    background: rgba(255,255,255,0.92);
+    color: var(--cor-acento);
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.modal-fechar:hover { transform: scale(1.03); }
 
 .modal-texto h3 {
     font-family: var(--fonte-principal);
