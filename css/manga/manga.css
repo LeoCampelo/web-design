@@ -1,0 +1,287 @@
+/* ========================================
+   MANGA.CSS - Padrão de Identidade Sorocaba
+   ======================================== */
+
+/* ---------------------------------------- */
+/* 1. LAYOUT GERAL E ESPAÇAMENTO            */
+/* ---------------------------------------- */
+
+.main-container {
+    padding-top: 0; 
+    padding-bottom: 80px;
+    overflow: visible;
+    background-color: var(--cor-fundo-principal); 
+}
+
+.content-section {
+    padding: 60px 0; 
+    transition: none; 
+    overflow: visible;
+}
+
+/* Fundo Principal (Branco/Claro) */
+.bloco-fundo-principal {
+    background-color: var(--cor-fundo-principal);
+}
+
+/* Fundo Acento (Pêssego/Laranja) */
+.bloco-fundo-acento {
+    background-color: var(--cor-acento);
+}
+
+/* ---------------------------------------- */
+/* 2. ESTILOS DA SEÇÃO INTRO BANNER (HERO)  */
+/* ---------------------------------------- */
+
+.manga-intro-banner {
+    position: relative;
+    background-image: url('../../midia/img_manga/manga_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.manga-intro-banner .hero-title {
+    font-family: var(--fonte-principal);
+    font-size: 3.8rem; 
+    color: var(--cor-texto-principal); 
+    margin-bottom: 10px;
+    max-width: 650px;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.manga-intro-banner .hero-description {
+    font-family: var(--fonte-corpo);
+    font-size: 1.3rem; 
+    color: var(--cor-texto-principal); 
+    margin-bottom: 30px;
+    max-width: 800px;
+    text-align: left;
+}
+
+.manga-intro-banner .section-content {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;margin-right: auto; 
+    margin-left: 50px; 
+    transform: translateY(-20vh); 
+    text-align: left;
+}
+
+/* ---------------------------------------- */
+/* 3. GRID DE DUAS COLUNAS E TIPOGRAFIA     */
+/* ---------------------------------------- */
+
+.section-content {
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 0 50px; 
+    overflow: visible;
+}
+
+/* TÍTULO PRINCIPAL DE BLOCO */
+.section-title {
+    font-size: 2.2rem;
+    font-family: var(--fonte-principal);
+    color: var(--cor-destaque); 
+    text-align: left; 
+    margin-bottom: 50px; 
+    position: relative;
+    padding-bottom: 10px;
+    
+    /* Recuo de alinhamento com o texto de conteúdo */
+    padding-left: 50px; 
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50px; 
+    transform: translateX(0);
+    width: 80px;
+    height: 3px;
+    background-color: var(--cor-secundaria); 
+    border-radius: 2px;
+}
+
+.two-column-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    padding: 0 50px; 
+    margin-bottom: 40px;
+    align-items: start; 
+    position: relative;
+    overflow: visible;
+}
+
+.two-column-grid.reverse {
+    /* Inverte a ordem visual (Imagem à Esquerda) */
+    direction: rtl; 
+}
+
+/* Restaura a direção do texto dentro da coluna invertida */
+.two-column-grid.reverse > * {
+    direction: ltr;
+}
+
+/* Coluna de Texto */
+.text-content {
+    /* No Grid, a largura é definida pelo grid-template-columns */
+    padding: 0;
+    min-width: 0; 
+    padding-top: 10px; /* Espaçamento da coluna de texto (para alinhar com imagem) */
+}
+
+/* Coluna de Imagem */
+.image-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    will-change: transform;
+    cursor: none;
+}
+
+.image-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.section-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* SUBTÍTULO DE CONTEÚDO */
+.content-subtitle {
+    font-size: 1.5rem;
+    font-family: var(--fonte-principal);
+    color: var(--cor-destaque);
+    margin-bottom: 1rem; /* Aumenta a margem abaixo do subtítulo */
+    margin-top: 0;
+    font-weight: bold;
+    text-align: left; 
+}
+
+.content-text {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--cor-texto-secundario); 
+    text-align: justify;
+}
+
+/* LEGENDA DA IMAGEM */
+.image-caption {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    text-align: center; 
+    margin-top: 0.5rem;
+    font-style: italic; 
+    padding: 0; 
+}
+
+
+/* ---------------------------------------- */
+/* 4. AJUSTES DE CONTRASTE E DARK MODE      */
+/* ---------------------------------------- */
+
+.bloco-fundo-acento .section-title,
+.bloco-fundo-acento .content-subtitle,
+.bloco-fundo-acento .content-text,
+.bloco-fundo-acento .image-caption {
+    color: var(--cor-texto-secundario); 
+}
+
+.bloco-fundo-acento .section-title::after {
+    background-color: var(--cor-destaque);
+}
+
+.dark-mode .section-title,
+.dark-mode .content-subtitle {
+    color: var(--cor-destaque); 
+}
+
+.dark-mode .content-text,
+.dark-mode .image-caption {
+    color: var(--cor-texto-secundario); 
+}
+
+.dark-mode .image-container {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+
+/* ---------------------------------------- */
+/* 5. RESPONSIVIDADE (Mobile)               */
+/* ---------------------------------------- */
+@media (max-width: 768px) {
+    .section-content {
+        padding: 0 20px;
+    }
+    
+    .two-column-grid {
+        /* No mobile, o Grid vira uma coluna única */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 0; 
+        direction: ltr; 
+    }
+
+    .two-column-grid.reverse {
+        direction: ltr; /* Desfaz o RTL no mobile */
+    }
+    
+    .text-content {
+        padding-top: 0;
+    }
+
+    .section-title {
+        padding-left: 0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .manga-intro-banner {
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+        background-attachment: scroll;
+    }
+    
+    .manga-intro-banner .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .main-container {
+        margin-top: 0;
+    }
+
+    .content-subtitle {
+        text-align: left;
+    }
+
+    .image-caption {
+        text-align: center;
+    }
+}
