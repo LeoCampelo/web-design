@@ -1,0 +1,913 @@
+/* ========================================
+   MANGA.CSS
+   Estilos para a página do Prefeito Rodrigo Manga
+   
+   Estrutura do arquivo:
+   1. Reset e configurações globais
+   2. Variáveis CSS (cores, fontes, etc)
+   3. Estilos do header/navegação
+   4. Estilos da seção hero
+   5. Estilos das seções de conteúdo
+   6. Estilos dos cards de planos
+   7. Estilos do footer
+   8. Animações
+   9. Media queries (responsividade)
+   ======================================== */
+
+/* ========================================
+   1. RESET E CONFIGURAÇÕES GLOBAIS
+   Remove espaçamentos padrão do navegador
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+/* ========================================
+   2. VARIÁVEIS CSS
+   Cores e valores reutilizáveis
+   Facilita manutenção e consistência
+   ======================================== */
+:root {
+  /* Paleta de cores baseada em Sorocaba */
+  --primary-green: #2d5016;
+  --primary-green-light: #3d6b1f;
+  --primary-green-dark: #1d3a0f;
+  --accent-gold: #d4af37;
+  --accent-gold-light: #e6c658;
+  
+  /* Cores neutras */
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #666666;
+  --dark-gray: #333333;
+  --black: #000000;
+  
+  /* Tipografia */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
+  --font-size-large: 1.125rem;
+  --font-size-xlarge: 1.5rem;
+  --font-size-xxlarge: 2rem;
+  --font-size-huge: 3rem;
+  
+  /* Espaçamentos */
+  --spacing-small: 1rem;
+  --spacing-medium: 2rem;
+  --spacing-large: 4rem;
+  --spacing-xlarge: 6rem;
+  
+  /* Transições (aumentadas para movimentos mais longos) */
+  --transition-fast: 0.35s ease;
+  --transition-medium: 0.9s cubic-bezier(0.22, 0.9, 0.32, 1);
+  --transition-slow: 1.25s cubic-bezier(0.18, 0.8, 0.25, 1);
+}
+
+/* ========================================
+   CONFIGURAÇÕES DO BODY
+   Define scroll suave e estilos base
+   ======================================== */
+html {
+  scroll-behavior: smooth; /* Scroll suave ao clicar em links âncora */
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  line-height: 1.6; /* Espaçamento entre linhas para boa leitura */
+  color: var(--dark-gray);
+  background-color: var(--white);
+  overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* ========================================
+   3. ESTILOS DO HEADER/NAVEGAÇÃO
+   Barra fixa no topo com menu
+   ======================================== */
+.header {
+  position: fixed; /* Fica fixo ao rolar a página */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-green);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Garante que fica acima de outros elementos */
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between; /* Logo à esquerda, menu à direita */
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-xlarge);
+  font-weight: bold;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none; /* Remove bullets da lista */
+  gap: 2rem; /* Espaço entre itens do menu */
+}
+
+/* ========================================
+   ESTILOS DO MENU DE REDES SOCIAIS
+   Ícones no menu com dropdown
+   ======================================== */
+.social-item {
+  position: relative;
+}
+
+.social-toggle {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 6px 8px;
+  font-size: 0.95rem;
+}
+
+.social-toggle:focus {
+  outline: 2px solid var(--accent-gold-light);
+  outline-offset: 2px;
+}
+
+.social-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  transform-origin: top right;
+  z-index: 1200;
+  min-width: 160px;
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+  transform: translateY(-6px) scale(0.98);
+}
+
+.social-dropdown.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.social-link svg {
+  display: block;
+}
+
+.social-link:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+/* Efeito de hover: aumenta levemente o botão para dar feedback visual */
+.hero-button,
+.social-toggle,
+.social-link {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-button:hover,
+.social-toggle:hover,
+.social-link:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
+/* Respeita preferência do usuário por reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+  .hero-button,
+  .social-toggle,
+  .social-link {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: var(--font-size-large);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+/* Efeito hover no link - linha animada embaixo */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--accent-gold-light);
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Linha cresce ao passar o mouse */
+}
+
+/* ========================================
+   4. ESTILOS DA SEÇÃO HERO
+   Banner principal com imagem de fundo
+   ======================================== */
+.hero-section {
+  position: relative;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  /* Foto do prefeito sozinho (fonte: Prefeitura de Sorocaba - Secom). */
+  background-image: url('https://noticias.sorocaba.sp.gov.br/wp-content/uploads/2022/12/noticias.sorocaba.sp.gov.br-img-2410.jpg');
+  /* Fallback sólido caso a imagem externa não carregue (melhor que usar gradient como background-color) */
+  background-color: #2d5016;
+  background-size: cover; /* Imagem cobre toda a área */
+  /* Ajuste do ponto focal para que o rosto fique visível em diferentes larguras */
+  background-position: center 30%;
+  background-attachment: fixed; /* Efeito parallax */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vídeo em background cobrindo o hero (fica atrás do overlay) */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* mantém proporção e cobre a área */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none; /* evita capturar cliques */
+}
+
+/* A camada overlay fica acima do vídeo e garante legibilidade */
+.hero-section .hero-overlay {
+  position: absolute;
+  z-index: 1;
+}
+
+/* .hero-content: consolidated below with layout and presentation rules */
+
+/* Respeitar preferência do usuário por reduzir movimento: pausar vídeo */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none; /* esconde vídeo e usa imagem de fallback */
+  }
+}
+
+/* Overlay escuro sobre a imagem para melhorar legibilidade */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 80, 22, 0.85) 0%,
+    rgba(29, 58, 15, 0.75) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  position: relative; /* fica acima do overlay */
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  padding: 2rem;
+  animation: fadeInUp 1s ease-out; /* Anima entrada do conteúdo */
+}
+
+.hero-title {
+  font-size: var(--font-size-huge);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra no texto */
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xxlarge);
+  margin-bottom: 1rem;
+  color: var(--accent-gold-light);
+}
+
+.hero-description {
+  font-size: var(--font-size-large);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botão de call-to-action */
+.hero-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--accent-gold);
+  color: var(--primary-green-dark);
+  text-decoration: none;
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  border-radius: 50px; /* Bordas arredondadas */
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.hero-button:hover {
+  background-color: var(--accent-gold-light);
+  transform: translateY(-3px); /* Move para cima */
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ========================================
+   5. ESTILOS DAS SEÇÕES DE CONTEÚDO
+   Layout das seções principais
+   ======================================== */
+.main-container {
+  margin-top: 80px; /* Compensa altura do header fixo */
+  padding-bottom: 4rem;
+}
+
+.content-section {
+  padding: var(--spacing-xlarge) 0;
+  opacity: 0; /* Começa invisível para animação */
+  /* Aumenta a distância vertical inicial para movimento mais visível */
+  transform: translateY(70px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* Classe adicionada por JavaScript quando seção entra na tela */
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   Classes utilitárias para fade in/out de seções
+   e para imagens que 'chegam' lateralmente e saem
+   ======================================== */
+.inview {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Estado inicial para imagens que entrarão pela esquerda/direita */
+.img-slide {
+  opacity: 0;
+  /* Vem de mais longe (aumentado para 160px) e um pouco menor no início */
+  transform: translateX(-160px) scale(0.95);
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+.img-slide.right {
+  transform: translateX(160px) scale(0.95);
+}
+
+/* Quando estiverem em view, elas 'param' ao lado do texto */
+.img-slide.inview {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Quando saem (scroll para cima) podemos aplicar uma leve transição para sumir */
+.img-slide.outview-up {
+  opacity: 0;
+  transform: translateY(-30px) scale(0.98);
+}
+
+/* Mobile tweaks - não usar background-attachment fixed para evitar glitches */
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll;
+    background-position: center 20%;
+  }
+
+  /* Imagens não fazem slide lateral em telas pequenas; ficam acima do texto */
+  .two-column-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .img-slide {
+    transform: translateY(20px) scale(0.98);
+  }
+
+  .img-slide.right {
+    transform: translateY(20px) scale(0.98);
+  }
+}
+
+.section-title {
+  font-size: var(--font-size-xxlarge);
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+/* Linha decorativa abaixo do título */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+}
+
+/* ========================================
+   GRID DE DUAS COLUNAS
+   Texto e imagem lado a lado
+   ======================================== */
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: var(--spacing-large);
+}
+
+/* Força a imagem da seção 'historia' a ficar sempre à direita do texto em larguras maiores
+   mantendo o empilhamento padrão em telas pequenas. Isso evita que regras globais ou
+   inversões afetem visualmente esta seção específica. */
+#historia .two-column-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-auto-flow: row; /* keep normal flow but place columns explicitly */
+  direction: ltr; /* ensure left-to-right ordering for this section */
+}
+#historia .text-content {
+  grid-column: 1;
+  align-self: center;
+}
+#historia .image-container {
+  grid-column: 2;
+  justify-self: end; /* keep the image to the right column */
+  align-self: center;
+}
+
+/* Versão invertida (imagem primeiro) */
+.two-column-grid.reverse {
+  direction: rtl; /* Inverte ordem visualmente */
+}
+
+.two-column-grid.reverse > * {
+  direction: ltr; /* Restaura direção do texto */
+}
+
+.text-content {
+  padding: 1rem;
+}
+
+.content-subtitle {
+  font-size: var(--font-size-xlarge);
+  color: var(--primary-green-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.content-text {
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-large);
+  line-height: 1.8;
+  color: var(--medium-gray);
+}
+
+/* ========================================
+   ESTILOS DAS IMAGENS
+   Efeitos e animações nas imagens
+   ======================================== */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.section-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-medium);
+  border-radius: 12px;
+}
+
+/* Efeito de zoom ao passar o mouse */
+.image-container:hover .section-image {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   ESTILO DE FIGURAS E LEGENDAS
+   Legendas abaixo das imagens com crédito/fonte
+   ======================================== */
+.image-container figure {
+  margin: 0; /* remove espaçamento extra */
+  display: block;
+}
+
+.image-caption {
+  display: block;
+  font-size: 0.875rem; /* menor que o texto principal */
+  color: var(--medium-gray);
+  margin-top: 0.6rem;
+  padding: 0 0.4rem;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* Destaque sutil para a parte do crédito/fonte dentro da legenda */
+.image-caption small {
+  display: block;
+  color: #9aa09a;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Ajustes responsivos para legendas centralizadas em telas pequenas */
+@media (max-width: 768px) {
+  .image-caption {
+    text-align: center;
+  }
+}
+
+/* Overlay que aparece ao passar o mouse */
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 80, 22, 0.3) 0%,
+    rgba(212, 175, 55, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+/* ========================================
+   6. ESTILOS DOS CARDS DE PLANOS
+   Grid de cards com os planos futuros
+   ======================================== */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 2rem;
+  margin-bottom: var(--spacing-large);
+}
+
+.plan-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px); /* Levanta ao passar o mouse */
+  box-shadow: 0 10px 30px rgba(45, 80, 22, 0.15);
+  border-color: var(--accent-gold);
+}
+
+.plan-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Educação: ícone de livro estático
+   Todas as regras de animação/hover foram removidas. Mantemos apenas
+   estilos de apresentação (tamanho, origem e visibilidade traseira).
+*/
+.plan-education .book-icon {
+  display: block;
+  margin: 0 auto 0.6rem auto;
+  width: 80px;
+  height: 56px;
+  transform-style: preserve-3d;
+  perspective: 900px;
+}
+
+.plan-education .book-cover-group {
+  transform-box: fill-box;
+  transform-origin: 20px 28px;
+  backface-visibility: hidden;
+  transform: rotateY(0deg) translateZ(0);
+}
+
+.plan-title {
+  font-size: var(--font-size-xlarge);
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.plan-description {
+  font-size: var(--font-size-base);
+  color: var(--medium-gray);
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ========================================
+   SEÇÃO DE CITAÇÃO
+   Destaque para frase do prefeito
+   ======================================== */
+.quote-section {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+  padding: 3rem;
+  border-radius: 12px;
+  margin-top: var(--spacing-large);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(45, 80, 22, 0.2);
+}
+
+.quote-text {
+  font-size: var(--font-size-xlarge);
+  color: var(--white);
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Aspas decorativas */
+.quote-text::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--accent-gold);
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  opacity: 0.5;
+}
+
+.quote-author {
+  font-size: var(--font-size-large);
+  color: var(--accent-gold-light);
+  font-weight: 600;
+}
+
+/* ========================================
+   7. ESTILOS DO FOOTER
+   Rodapé da página
+   ======================================== */
+.footer {
+  background-color: var(--primary-green-dark);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-text {
+  color: var(--white);
+  font-size: var(--font-size-base);
+  margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   8. ANIMAÇÕES
+   Keyframes para animações customizadas
+   ======================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   9. MEDIA QUERIES (RESPONSIVIDADE)
+   Adaptações para diferentes tamanhos de tela
+   ======================================== */
+
+/* Tablets (telas até 1024px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.75rem;
+  }
+  
+  .two-column-grid {
+    gap: 2rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+  }
+}
+
+/* Smartphones (telas até 768px) */
+@media (max-width: 768px) {
+  /* Ajustes no header */
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Ajustes no hero */
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  /* Grid vira coluna única */
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .two-column-grid.reverse {
+    direction: ltr;
+  }
+  
+  /* Cards em coluna única */
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ajustes de espaçamento */
+  .content-section {
+    padding: var(--spacing-medium) 0;
+  }
+  
+  .section-content {
+    padding: 0 1rem;
+  }
+  
+  /* Citação menor */
+  .quote-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Smartphones pequenos (telas até 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+
+  /* No mobile, restaura o comportamento natural (empilhamento) para a seção #historia */
+  #historia .text-content,
+  #historia .image-container {
+    grid-column: auto;
+  }
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .content-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .plan-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Estilos específicos e pequenos ajustes para a página do Manga.
+   O design base vem do css/base/base.css; aqui ficam apenas correções locais. */
+
+.main-container {
+  margin-top: 80px; /* compensa header fixo */
+  padding-bottom: 4rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: var(--fonte-principal);
+  color: var(--cor-destaque);
+}
+
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+}
+
+.text-content { padding: 0.5rem 0; }
+
+.content-subtitle {
+  font-size: 1.15rem;
+  color: var(--cor-destaque);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.content-text {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.image-container { border-radius: 8px; overflow: hidden; }
+.section-image { width: 100%; height: auto; display: block; border: 1px solid var(--cor-borda-menu); }
+.image-caption { margin-top: 0.5rem; color: var(--cor-texto-secundario); font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .two-column-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+  .section-title { font-size: 1.25rem; }
+}
