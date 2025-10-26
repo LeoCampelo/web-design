@@ -10,9 +10,9 @@
     --cor-secundaria: #a3b18a; 
     --cor-acento: #e0ac93; 
     --cor-borda-menu: #e8e8e8; 
-    
     --fonte-principal: 'Georgia', 'Times New Roman', serif; 
     --fonte-corpo: 'Helvetica Neue', 'Arial', sans-serif; 
+    --cor-texto-contraste-claro: #ffffff;
 }
 
 * {
@@ -51,6 +51,7 @@ ul {
     --cor-secundaria: #6D7E6C; 
     --cor-acento: #9e7769; 
     --cor-borda-menu: #363636;
+    --cor-texto-contraste-claro: #333333; 
 }
 
 .dark-mode .lazer-intro h2,
