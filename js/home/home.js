@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ================================================================
-    // 1. ANIMAÇÕES SCROLLREVEAL (MANTIDO)
+    // 1. ANIMAÇÕES SCROLLREVEAL (ATUALIZADO PARA ESPORTES)
     // ================================================================
     if (typeof ScrollReveal !== 'undefined') {
         
@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sr.reveal('.historia-coluna-esquerda', { origin: 'left' });
         sr.reveal('.historia-intro', { origin: 'right', delay: 200 });
         
-        sr.reveal('.turismo-header', { origin: 'top' });
-        sr.reveal('.container-turismo-galeria .turismo-item', { 
+        // CORREÇÃO: Usando as novas classes da seção de Esportes
+        sr.reveal('.esportes-header', { origin: 'top' }); 
+        sr.reveal('.container-esportes-galeria .esportes-item', { 
             origin: 'bottom',
             interval: 200, 
             delay: 300 
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // ================================================================
-    // 2. MODAL DE GALERIA (Pop-up de Imagem) - AGORA LÊ O SRC DA TAG <img>
+    // 2. MODAL DE GALERIA (Pop-up de Imagem) - ATUALIZADO PARA ESPORTES
     // ================================================================
     
     const modal = document.getElementById('modal-galeria');
@@ -49,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitulo = modal ? document.getElementById('modal-titulo') : null;
     const modalDescricao = modal ? document.getElementById('modal-descricao') : null;
     
-    // Seleciona todos os itens clicáveis que abrem o modal
-    const itensGaleria = document.querySelectorAll('.lazer-item, .turismo-item, .historia-coluna-esquerda');
+    // CORREÇÃO: Seleciona todos os itens clicáveis que abrem o modal, incluindo .esportes-item
+    const itensGaleria = document.querySelectorAll('.lazer-item, .esportes-item, .historia-coluna-esquerda');
 
     // A. Adiciona o Listener de clique em todos os itens
     itensGaleria.forEach(item => {
@@ -63,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 titulo = item.querySelector('.historia-imagem-legenda h4').textContent;
                 descricao = item.querySelector('.historia-imagem-legenda p').textContent;
                 imagemElement = item.querySelector('.historia-imagem-placeholder');
-            } else {
-                // Galerias de Lazer ou Turismo
+            } else if (item.classList.contains('lazer-item') || item.classList.contains('esportes-item')) {
+                // Galerias de Lazer ou Esportes (Usam a mesma estrutura item-imagem-placeholder)
                 titulo = item.querySelector('.item-titulo').textContent;
                 descricao = item.querySelector('.item-info').textContent;
                 imagemElement = item.querySelector('.item-imagem-placeholder');

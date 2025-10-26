@@ -134,19 +134,18 @@
     z-index: 1; 
 }
 
-/* NOVO: Estilo para a tag <img> que substitui o div com background-image */
+/* Estilo para a tag <img> na galeria de Lazer/Esportes */
 .lazer-item .item-imagem-placeholder,
-.turismo-item .item-imagem-placeholder {
+.esportes-item .item-imagem-placeholder { /* AGORA SELECIONA .esportes-item */
     width: 100%;
-    height: 350px; /* Mantém a altura anterior do div */
-    object-fit: cover; /* Garante que a imagem preencha a área sem distorcer */
+    height: 350px; 
+    object-fit: cover; 
     display: block;
     margin-bottom: 10px;
-    background-color: var(--cor-texto-secundario); /* Cor de fallback/loading */
+    background-color: var(--cor-texto-secundario); 
     border-bottom: 2px solid var(--cor-destaque);
 }
 
-/* REMOVIDO: item-imagem e suas classes específicas (item-imagem-1, etc.) */
 
 .item-titulo {
     font-weight: bold;
@@ -183,16 +182,14 @@
     padding-bottom: 5px; 
 }
 
-/* NOVO: Estilo para a tag <img> da Seção História */
+/* Estilo para a tag <img> da Seção História */
 .historia-coluna-esquerda .historia-imagem-placeholder {
-    width: 100%; /* Ocupa toda a largura do seu container */
+    width: 100%; 
     height: 500px; 
     object-fit: cover;
     display: block;
-    margin-bottom: 10px; /* Espaço entre imagem e legenda */
+    margin-bottom: 10px; 
 }
-
-/* REMOVIDO: .historia-imagem (Div com background-image) */
 
 /* Estilo da Legenda */
 .historia-imagem-legenda {
@@ -234,7 +231,7 @@
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--cor-texto-secundario); 
-    color: var(--cor-fundo-principal); /* Texto claro */
+    color: var(--cor-fundo-principal); 
     font-family: var(--fonte-corpo);
     font-weight: bold;
     text-transform: uppercase;
@@ -248,22 +245,22 @@
 
 
 /* ======================================= */
-/* SEÇÃO PONTOS TURÍSTICOS                 */
+/* SEÇÃO ESPORTES (Antiga PONTOS TURÍSTICOS) */
 /* ======================================= */
 
-.section-turismo {
+.section-esportes { /* NOME DA NOVA SEÇÃO */
     padding: 80px 50px;
     background-color: var(--cor-fundo-principal); 
 }
 
 
-.turismo-header {
+.esportes-header { /* NOME DO NOVO HEADER */
     text-align: center;
     max-width: 800px;
     margin: 0 auto 50px auto; 
 }
 
-.turismo-header h2 {
+.esportes-header h2 {
     font-family: var(--fonte-principal);
     font-size: 3.5rem; 
     line-height: 1.1;
@@ -271,13 +268,13 @@
     color: var(--cor-texto-secundario);
 }
 
-.turismo-header p {
+.esportes-header p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     color: var(--cor-texto-secundario);
 }
 
-.botao-turismo {
+.botao-esportes { /* NOME DO NOVO BOTÃO */
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--cor-destaque); 
@@ -289,11 +286,11 @@
     transition: background-color 0.3s ease;
 }
 
-.botao-turismo:hover {
+.botao-esportes:hover {
     background-color: #576556; 
 }
 
-.container-turismo-galeria {
+.container-esportes-galeria { /* NOME DA NOVA GALERIA */
     display: flex;
     gap: 30px; 
     max-width: 1200px;
@@ -301,7 +298,7 @@
     padding-bottom: 10px;
 }
 
-.turismo-item {
+.esportes-item { /* NOME DO NOVO ITEM */
     flex: 1;
     text-align: center;
     position: relative; 
@@ -310,14 +307,13 @@
 }
 
 
-.turismo-item .item-imagem-placeholder {
-    height: 400px; /* Mais alto para Turismo */
+.esportes-item .item-imagem-placeholder { /* Seleciona a imagem interna */
+    height: 400px;
     background-color: var(--cor-borda-menu); 
     border-bottom: 2px solid var(--cor-destaque); 
 }
 
-/* REMOVIDO: classes item-turismo-1, item-turismo-2, item-turismo-3 */
-
+/* Regra de Dark Mode que estava ligada ao .section-historia */
 .dark-mode .section-historia .historia-intro h2,
 .dark-mode .section-historia .historia-intro p {
     color: var(--cor-fundo-principal); 
@@ -329,14 +325,14 @@
 /* ======================================= */
 
 .lazer-item,
-.turismo-item,
+.esportes-item, /* Inclui a nova classe aqui */
 .historia-coluna-esquerda {
     cursor: pointer; 
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .lazer-item:hover,
-.turismo-item:hover {
+.esportes-item:hover { /* Inclui a nova classe aqui */
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
     z-index: 10; 
@@ -353,10 +349,10 @@
 
 @media (max-width: 768px) {
     
-    /* Empilhamento das galerias de Lazer e Turismo */
+    /* Empilhamento das galerias de Lazer e Esportes */
     .container-lazer,
     .lazer-galeria,
-    .container-turismo-galeria {
+    .container-esportes-galeria { /* AJUSTE AQUI */
         flex-direction: column; 
         gap: 40px; 
     }
@@ -381,14 +377,14 @@
     }
     
     .lazer-intro h2,
-    .turismo-header h2 {
+    .esportes-header h2 { /* AJUSTE AQUI */
         font-size: 2rem; /* Reduz os títulos de seção */
     }
     
     /* Ajuste de padding lateral nas seções para telas menores */
     .section-lazer,
     .section-historia,
-    .section-turismo {
+    .section-esportes { /* AJUSTE AQUI */
         padding: 50px 20px;
     }
 }
