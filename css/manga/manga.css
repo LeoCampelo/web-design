@@ -31,7 +31,7 @@
     position: relative;
     background-image: url('../../midia/img_manga/manga_banner.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center 10%;
     background-attachment: fixed; 
     height: 100vh;
     display: flex;
@@ -44,7 +44,7 @@
 .manga-intro-banner .hero-title {
     font-family: var(--fonte-principal);
     font-size: 3.8rem; 
-    color: var(--cor-texto-principal); 
+    color: var(--cor-texto-contraste-claro); 
     margin-bottom: 10px;
     max-width: 650px;
     line-height: 1.1;
@@ -54,7 +54,7 @@
 .manga-intro-banner .hero-description {
     font-family: var(--fonte-corpo);
     font-size: 1.3rem; 
-    color: var(--cor-texto-principal); 
+    color: var(--cor-texto-contraste-claro); 
     margin-bottom: 30px;
     max-width: 800px;
     text-align: left;
@@ -64,11 +64,13 @@
     width: 100%;
     max-width: 600px;
     position: relative;
-    z-index: 2;margin-right: auto; 
+    z-index: 2;
+    margin-right: auto; 
     margin-left: 50px; 
     transform: translateY(-20vh); 
     text-align: left;
 }
+
 
 /* ---------------------------------------- */
 /* 3. GRID DE DUAS COLUNAS E TIPOGRAFIA     */
@@ -89,6 +91,7 @@
     margin-bottom: 50px; 
     position: relative;
     padding-bottom: 10px;
+    
     padding-left: 50px; 
 }
 
@@ -184,6 +187,16 @@
 /* ---------------------------------------- */
 /* 4. AJUSTES DE CONTRASTE E DARK MODE      */
 /* ---------------------------------------- */
+.dark-mode .manga-intro-banner {
+    --cor-texto-principal: #333333; 
+}
+
+.dark-mode .manga-intro-banner .hero-title,
+.dark-mode .manga-intro-banner .hero-description {
+    color: var(--cor-texto-contraste-claro); 
+    text-shadow: none;
+}
+
 
 .bloco-fundo-acento .section-title,
 .bloco-fundo-acento .content-subtitle,
@@ -252,8 +265,9 @@
         background-attachment: scroll;
     }
     
-    .manga-intro-banner .hero-title {
-        font-size: 2.5rem;
+    .manga-intro-banner .hero-title,
+    .manga-intro-banner .hero-description {
+        display: none !important; 
     }
 
     .main-container {
