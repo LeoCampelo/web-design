@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. ANIMAÇÕES SCROLLREVEAL
     if (typeof ScrollReveal !== 'undefined') {
-        
-        // Configuração base
+
         const defaultProps = {
             duration: 1000,
             distance: '30px',
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             reset: false
         };
 
-        // Revela o texto e imagem do banner separadamente
         ScrollReveal().reveal('.esportes-intro-banner h1', { ...defaultProps, origin: 'left' });
         ScrollReveal().reveal('.esportes-intro-banner .subtitulo-intro', { ...defaultProps, origin: 'left', delay: 200 });
 
@@ -29,11 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const isReversed = containerColunas.classList.contains('reverse-desktop');
             
-            // Define a direção da animação baseada na ordem do layout (Texto ou Imagem primeiro)
             const textOrigin = isReversed ? 'right' : 'left';
             const imageOrigin = isReversed ? 'left' : 'right';
 
-            // Animação da Coluna de Texto
             const colunaTexto = section.querySelector('.coluna-texto');
             if (colunaTexto) {
                 ScrollReveal().reveal(colunaTexto, { 
@@ -43,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Animação da Coluna de Imagem
             const colunaImagem = section.querySelector('.coluna-imagem-legenda');
             if (colunaImagem) {
                 ScrollReveal().reveal(colunaImagem, { 
@@ -54,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Rodapé
         ScrollReveal().reveal('.rodape', { ...defaultProps, origin: 'bottom', distance: '20px', delay: 100 });
     }
 
@@ -66,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalTitle = document.getElementById('modal-titulo');
         const modalDescription = document.getElementById('modal-descricao');
         const closeModal = document.querySelector('.modal-fechar');
-        
-        // Seleciona todos os elementos que podem disparar o modal
         const triggers = document.querySelectorAll('.coluna-imagem-legenda.modal-trigger');
 
         const openModal = (trigger) => {
@@ -77,8 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!imageElement || !modal) return;
 
-            // Preenchimento e Lógica de Carregamento
-            modalImage.src = ''; // Limpa a fonte antes de carregar
+            modalImage.src = ''; 
             modal.querySelector('.modal-imagem').classList.add('loading');
             
             modalImage.onload = () => {
@@ -97,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalDescription.textContent = descriptionElement ? descriptionElement.textContent.trim() : '';
 
             modal.style.display = "flex";
-            document.body.style.overflow = 'hidden'; // Bloqueia rolagem
+            document.body.style.overflow = 'hidden'; 
         };
 
         const close = () => {
@@ -106,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         };
 
-        // Adiciona listeners
         triggers.forEach(trigger => {
             trigger.addEventListener('click', () => openModal(trigger));
         });
@@ -128,6 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. EXECUÇÃO
     inicializarModalGaleria();
 });

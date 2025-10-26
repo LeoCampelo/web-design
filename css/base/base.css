@@ -3,28 +3,23 @@
 /* ======================================= */
 
 :root {
-    /* Paleta de Cores */
     --cor-fundo-principal: #f7f5ef; 
     --cor-texto-principal: #ffffff; 
     --cor-texto-secundario: #6D7E6C;
-    --cor-destaque: #6D7E6C;        
-    --cor-secundaria: #a3b18a;      
-    --cor-acento: #e0ac93;          
-    --cor-borda-menu: #e8e8e8;      
+    --cor-destaque: #6D7E6C; 
+    --cor-secundaria: #a3b18a; 
+    --cor-acento: #e0ac93; 
+    --cor-borda-menu: #e8e8e8; 
     
-    /* Fontes */
     --fonte-principal: 'Georgia', 'Times New Roman', serif; 
     --fonte-corpo: 'Helvetica Neue', 'Arial', sans-serif; 
 }
 
-/* Reset Básico para melhor consistência entre navegadores */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Definições para os elementos base das páginas */
 
 body {
     font-family: var(--fonte-corpo);
@@ -44,9 +39,8 @@ ul {
 }
 
 
-
 /* ======================================= */
-/*          ESTILOS DO DARK MODE           */
+/* ESTILOS DO DARK MODE                    */
 /* ======================================= */
 
 .dark-mode {
@@ -95,7 +89,7 @@ ul {
 
 
 /* ======================================= */
-/*   ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)   */
+/* ESTILIZAÇÃO DO HEADER (NAVBAR FIXA)     */
 /* ======================================= */
 
 .navbar-fixa {
@@ -177,38 +171,39 @@ ul {
 }
 
 .hamburger-menu {
-	display: none; 
-	cursor: pointer;
-	width: 30px;
-	height: 25px;
-	position: relative;
-	z-index: 1002; 
-	margin-right: 15px;
-	transition: all 0.3s ease-in-out;
+    display: none; 
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 1002; 
+    margin-right: 15px;
+    transition: all 0.3s ease-in-out;
 }
 
 .hamburger-menu span {
-	display: block;
-	width: 100%;
-	height: 3px;
-	margin-bottom: 5px;
-	background-color: var(--cor-destaque);
-	border-radius: 3px;
-	transition: all 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: var(--cor-destaque);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
 }
 
 .hamburger-menu.is-active span:nth-child(1) {
-	transform: rotate(45deg) translate(5px, 6px);
+    transform: rotate(45deg) translate(5px, 6px);
 }
 .hamburger-menu.is-active span:nth-child(2) {
-	opacity: 0;
+    opacity: 0;
 }
 .hamburger-menu.is-active span:nth-child(3) {
-	transform: rotate(-45deg) translate(5px, -6px);
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
+
 /* ======================================= */
-/*            RODAPÉ (FOOTER)              */
+/* RODAPÉ (FOOTER)                         */
 /* ======================================= */
 
 .rodape {
@@ -281,7 +276,7 @@ ul {
 
 
 /* ======================================= */
-/*          BOTÃO VOLTAR AO TOPO           */
+/* BOTÃO VOLTAR AO TOPO                    */
 /* ======================================= */
 
 .botao-voltar-topo {
@@ -314,21 +309,21 @@ ul {
 
 
 /* ======================================= */
-/*           ESTILOS DO MODAL/POP-UP       */
+/* ESTILOS DO MODAL/POP-UP                 */
 /* ======================================= */
 
 .modal-galeria {
-    display: none; /* Oculto por padrão, será 'display: flex' via JS para mostrar */
+    display: none; 
     position: fixed; 
-    z-index: 2000; /* Alto z-index para garantir que esteja acima de tudo */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Permite rolagem se o conteúdo for grande */
-    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro transparente */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center; 
+    align-items: center; 
     padding: 20px;
 }
 
@@ -338,14 +333,13 @@ ul {
     margin: auto;
     padding: 20px;
     border-radius: 8px;
-    max-width: 1000px; /* Largura máxima do modal */
+    max-width: 1000px; 
     width: 92%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    animation-name: zoom; /* Adiciona uma animação suave */
+    animation-name: zoom; 
     animation-duration: 0.3s;
 }
 
-/* Animação para o modal aparecer */
 @keyframes zoom {
     from {transform: scale(0.9);} 
     to {transform: scale(1);}
@@ -382,7 +376,7 @@ ul {
 .modal-imagem {
     width: 100%;
     height: auto;
-    max-height: 60vh; /* Limita altura para caber na viewport */
+    max-height: 60vh; 
     background-size: cover;
     background-position: center;
     border-radius: 4px;
@@ -392,7 +386,7 @@ ul {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative; /* necessário para o spinner */
+    position: relative; 
 }
 
 .modal-imagem img {
@@ -404,28 +398,21 @@ ul {
     display: block;
 }
 
-/* Loader visual dentro do modal-imagem quando a imagem estiver carregando */
 .modal-imagem.loading::after {
     content: '';
     position: absolute;
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.14);
-    border-top-color: var(--cor-destaque);
+    border: 5px solid rgba(109, 126, 108, 0.2);
+    border-top: 5px solid var(--cor-destaque);
     animation: spin 1s linear infinite;
     z-index: 30;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Imagem com transição suave ao aparecer */
 .modal-imagem img { opacity: 0; transition: opacity 260ms ease-in-out, transform 260ms ease-in-out; transform: scale(0.98); }
 .modal-imagem img.loaded { opacity: 1; transform: scale(1); }
 
-/* Melhor aspecto do botão fechar: círculo discreto */
 .modal-fechar {
     background: rgba(255,255,255,0.92);
     color: var(--cor-acento);
@@ -452,109 +439,150 @@ ul {
     color: var(--cor-texto-secundario);
 }
 
-/* Ajustes de Dark Mode para o Modal */
 .dark-mode .modal-conteudo {
-    /* Garante que o fundo do modal siga o tema */
     background-color: var(--cor-fundo-principal); 
 }
 
 .dark-mode .modal-texto h3, 
 .dark-mode .modal-texto p {
-    /* Garante que o texto seja legível no tema escuro */
     color: var(--cor-texto-secundario);
 }
 
+
 /* ======================================= */
-/* 7. MEDIA QUERIES (RESPONSIVIDADE)       */
+/* ESTILOS DE CARREGAMENTO E ACESSIBILIDADE*/
+/* ======================================= */
+
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo-principal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.3s ease-out;
+}
+
+#page-loader p {
+    color: var(--cor-destaque);
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+.spinner {
+    border: 6px solid rgba(109, 126, 108, 0.2);
+    border-top: 6px solid var(--cor-destaque);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+:focus:not(.keyboard-focus) {
+    outline: none; 
+}
+.keyboard-focus {
+    outline: 2px dashed var(--cor-secundaria);
+    outline-offset: 3px; 
+    border-radius: 2px;
+}
+
+
+/* ======================================= */
+/* MEDIA QUERIES (RESPONSIVIDADE)          */
 /* ======================================= */
 
 @media (max-width: 992px) {
     
-	/* Navbar: Ajuste geral do container */
-	.navbar-fixa {
-		padding: 15px 20px;
-	}
+    .navbar-fixa {
+        padding: 15px 20px;
+    }
     
-	/* Logo: Fica no centro do Header no mobile */
-	.logo {
-		position: static; 
-		transform: none;
-		order: 2; /* Coloca o logo no centro */
-	}
+    .logo {
+        position: static; 
+        transform: none;
+        order: 2; 
+    }
     
-	/* Menu Lateral: Onde estão o tema e o manga */
-	.menu-direita {
-		order: 3; /* Fica na direita */
-		gap: 10px;
-	}
+    .menu-direita {
+        order: 3; 
+        gap: 10px;
+    }
     
-	/* Hamburger: Fica na extrema esquerda */
-	.hamburger-menu {
-		display: block; /* MOSTRA O HAMBURGER NO MOBILE */
-		order: 1; 
-	}
+    .hamburger-menu {
+        display: block; 
+        order: 1; 
+    }
 
-	/* Menu de Links (Conteúdo Principal) */
-	.menu-principal-links {
-		display: none; /* ESCONDE O MENU POR PADRÃO */
-		position: absolute;
-		top: 65px; /* Altura do header */
-		left: 0;
-		width: 100%;
-		background-color: var(--cor-fundo-principal);
-		box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-		z-index: 990;
-		transition: all 0.3s ease;
-	}
+    .menu-principal-links {
+        display: none; 
+        position: absolute;
+        top: 65px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo-principal);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        z-index: 990;
+        transition: all 0.3s ease;
+    }
     
-	/* Mostra o menu quando ativado pelo JS */
-	.menu-principal-links.menu-aberto {
-		display: block;
-		border-top: 1px solid var(--cor-borda-menu);
-	}
+    .menu-principal-links.menu-aberto {
+        display: block;
+        border-top: 1px solid var(--cor-borda-menu);
+    }
     
-	.menu-principal-links ul {
-		flex-direction: column; /* Lista vertical */
-		padding: 10px 0;
-	}
+    .menu-principal-links ul {
+        flex-direction: column; 
+        padding: 10px 0;
+    }
     
-	.menu-principal-links ul li {
-		width: 100%;
-		text-align: center;
-		border-bottom: 1px solid var(--cor-borda-menu);
-	}
+    .menu-principal-links ul li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--cor-borda-menu);
+    }
     
-	.menu-principal-links a {
-		display: block;
-		padding: 15px 0;
-		color: var(--cor-destaque);
-	}
+    .menu-principal-links a {
+        display: block;
+        padding: 15px 0;
+        color: var(--cor-destaque);
+    }
     
-	.menu-principal-links a:hover { 
-		border-bottom: none;
-		background-color: rgba(0, 0, 0, 0.05); /* Efeito hover no link */
-	}
+    .menu-principal-links a:hover { 
+        border-bottom: none;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
 
     .container-rodape {
-		flex-direction: column; /* Empilha as colunas */
-		gap: 30px; 
-		padding: 0 20px 30px 20px;
-	}
+        flex-direction: column; 
+        gap: 30px; 
+        padding: 0 20px 30px 20px;
+    }
 
-	.rodape-coluna {
-		flex-basis: auto; /* Remove a largura fixa */
-		text-align: center;
-	}
+    .rodape-coluna {
+        flex-basis: auto; 
+        text-align: center;
+    }
 
-	.rodape-coluna h3 {
-		margin-bottom: 5px; 
-	}
+    .rodape-coluna h3 {
+        margin-bottom: 5px; 
+    }
 
-	.rodape-logo {
-		text-align: center;
-	}
+    .rodape-logo {
+        text-align: center;
+    }
 
-	.logo-rodape {
-		margin-bottom: 5px;
-	}
+    .logo-rodape {
+        margin-bottom: 5px;
+    }
 }

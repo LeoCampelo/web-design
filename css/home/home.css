@@ -134,9 +134,8 @@
     z-index: 1; 
 }
 
-/* Estilo para a tag <img> na galeria de Lazer/Esportes */
 .lazer-item .item-imagem-placeholder,
-.esportes-item .item-imagem-placeholder { /* AGORA SELECIONA .esportes-item */
+.esportes-item .item-imagem-placeholder { 
     width: 100%;
     height: 350px; 
     object-fit: cover; 
@@ -182,7 +181,6 @@
     padding-bottom: 5px; 
 }
 
-/* Estilo para a tag <img> da Seção História */
 .historia-coluna-esquerda .historia-imagem-placeholder {
     width: 100%; 
     height: 500px; 
@@ -191,7 +189,6 @@
     margin-bottom: 10px; 
 }
 
-/* Estilo da Legenda */
 .historia-imagem-legenda {
     text-align: left;
 }
@@ -248,13 +245,13 @@
 /* SEÇÃO ESPORTES (Antiga PONTOS TURÍSTICOS) */
 /* ======================================= */
 
-.section-esportes { /* NOME DA NOVA SEÇÃO */
+.section-esportes { 
     padding: 80px 50px;
     background-color: var(--cor-fundo-principal); 
 }
 
 
-.esportes-header { /* NOME DO NOVO HEADER */
+.esportes-header { 
     text-align: center;
     max-width: 800px;
     margin: 0 auto 50px auto; 
@@ -274,7 +271,7 @@
     color: var(--cor-texto-secundario);
 }
 
-.botao-esportes { /* NOME DO NOVO BOTÃO */
+.botao-esportes { 
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--cor-destaque); 
@@ -290,7 +287,7 @@
     background-color: #576556; 
 }
 
-.container-esportes-galeria { /* NOME DA NOVA GALERIA */
+.container-esportes-galeria { 
     display: flex;
     gap: 30px; 
     max-width: 1200px;
@@ -298,7 +295,7 @@
     padding-bottom: 10px;
 }
 
-.esportes-item { /* NOME DO NOVO ITEM */
+.esportes-item { 
     flex: 1;
     text-align: center;
     position: relative; 
@@ -307,13 +304,12 @@
 }
 
 
-.esportes-item .item-imagem-placeholder { /* Seleciona a imagem interna */
+.esportes-item .item-imagem-placeholder { 
     height: 400px;
     background-color: var(--cor-borda-menu); 
     border-bottom: 2px solid var(--cor-destaque); 
 }
 
-/* Regra de Dark Mode que estava ligada ao .section-historia */
 .dark-mode .section-historia .historia-intro h2,
 .dark-mode .section-historia .historia-intro p {
     color: var(--cor-fundo-principal); 
@@ -325,14 +321,14 @@
 /* ======================================= */
 
 .lazer-item,
-.esportes-item, /* Inclui a nova classe aqui */
+.esportes-item, 
 .historia-coluna-esquerda {
     cursor: pointer; 
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .lazer-item:hover,
-.esportes-item:hover { /* Inclui a nova classe aqui */
+.esportes-item:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
     z-index: 10; 
@@ -349,42 +345,38 @@
 
 @media (max-width: 768px) {
     
-    /* Empilhamento das galerias de Lazer e Esportes */
     .container-lazer,
     .lazer-galeria,
-    .container-esportes-galeria { /* AJUSTE AQUI */
+    .container-esportes-galeria { 
         flex-direction: column; 
         gap: 40px; 
     }
     
     .lazer-intro {
-        flex: 0 0 auto; /* Remove a largura fixa para ocupar 100% */
+        flex: 0 0 auto; 
     }
     
-    /* Empilhamento da Seção História */
     .container-historia {
         flex-direction: column; 
         gap: 30px;
     }
     
     .historia-intro {
-        max-width: 100%; /* Ocupa 100% da largura */
+        max-width: 100%; 
     }
     
-    /* Ajuste de Fontes e Padding no Mobile */
     .main-conteudo h1 {
-        font-size: 2.5rem; /* Reduz o título principal */
+        font-size: 2.5rem; 
     }
     
     .lazer-intro h2,
-    .esportes-header h2 { /* AJUSTE AQUI */
-        font-size: 2rem; /* Reduz os títulos de seção */
+    .esportes-header h2 { 
+        font-size: 2rem; 
     }
     
-    /* Ajuste de padding lateral nas seções para telas menores */
     .section-lazer,
     .section-historia,
-    .section-esportes { /* AJUSTE AQUI */
+    .section-esportes { 
         padding: 50px 20px;
     }
 }
