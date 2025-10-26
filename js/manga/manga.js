@@ -1,19 +1,7 @@
-/**
- * ========================================
- * MANGA.JS - Interações da Página do Prefeito
- * * Funcionalidades:
- * 1. Cursor personalizado em forma de manga (🥭)
- * 2. Explosão de mangas ao clicar na página
- * 3. Animação de fade-in nas seções ao rolar (ScrollReveal)
- * 4. Modal de Imagens (Corrigido)
- * ========================================
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = (() => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; } })();
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // --- FUNCIONALIDADE 1 & 2: CURSOR E EXPLOSÃO DE MANGAS ---
     if (!reduceMotion && !isTouch) {
         const cursor = document.createElement('div');
         cursor.textContent = '🥭';
@@ -68,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('beforeunload', () => { document.documentElement.style.cursor = ''; });
 
-        // Explosão de mangas ao clicar
         document.addEventListener('click', (e) => {
             const count = 8;
             for (let i = 0; i < count; i++) {
@@ -93,15 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- FUNCIONALIDADE 3: ANIMAÇÃO SCROLLREVEAL ---
     if (typeof ScrollReveal !== 'undefined') {
         const sr = ScrollReveal({ distance: '50px', duration: 1200, easing: 'ease-out', reset: false });
 
-        // Banner Introdutório
         sr.reveal('.manga-intro-banner .hero-title', { origin: 'left' });
         sr.reveal('.manga-intro-banner .hero-description', { origin: 'left', delay: 200 });
         
-        // Animação Alternada para as Seções (Conteúdo e Imagem)
         document.querySelectorAll('.content-section').forEach((section, index) => {
             const isReversed = section.classList.contains('reverse');
 
@@ -117,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // Animação do Footer
         sr.reveal('.rodape', { origin: 'bottom', duration: 800, distance: '20px', delay: 100 });
     }
 });

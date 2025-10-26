@@ -3,10 +3,8 @@
 /* ======================================= */
 
 .historia-intro-banner {
-	/* Padding para o canto esquerdo, ajustado */
-	padding: 120px 50px 80px 50px; 
-	
-    /* IMAGEM DE FUNDO COM OVERLAY ESCURO */
+    padding: 120px 50px 80px 50px; 
+    
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
                       url('../../midia/img_home/historia-sorocaba.png'); 
     background-size: cover;
@@ -17,226 +15,216 @@
 }
 
 .historia-intro-banner h1 {
-	font-family: var(--fonte-principal);
-	font-size: 3.8rem; 
-	color: var(--cor-texto-principal); 
-	text-align: left; 
-	margin-bottom: 15px;
-	max-width: 700px; /* Aumentado para melhor visualização */
+    font-family: var(--fonte-principal);
+    font-size: 3.8rem; 
+    color: var(--cor-texto-principal); 
+    text-align: left; 
+    margin-bottom: 15px;
+    max-width: 700px; 
 }
 
 .subtitulo-intro {
-	font-family: var(--fonte-corpo);
-	font-size: 1.3rem; 
-	line-height: 1.5;
-	color: var(--cor-texto-principal); 
-	margin-bottom: 30px;
-	text-align: left; 
-	max-width: 900px; /* Aumentado para melhor visualização */
-	margin-left: 0; 
-	margin-right: auto;
+    font-family: var(--fonte-corpo);
+    font-size: 1.3rem; 
+    line-height: 1.5;
+    color: var(--cor-texto-principal); 
+    margin-bottom: 30px;
+    text-align: left; 
+    max-width: 900px; 
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .historia-intro-banner p {
     color: var(--cor-texto-principal); 
     text-align: left; 
-    max-width: 900px; /* Aumentado para melhor visualização */
+    max-width: 900px; 
     margin-left: 0;
     margin-right: auto;
 }
 
+
 /* ======================================= */
-/* 2. ESTILIZAÇÃO DE BLOCOS DE CONTEÚDO    */
+/* 2. ESTILIZAÇÃO DE BLOCOS DE CONTEÚDO    */
 /* ======================================= */
 
 .historia-duas-colunas {
-	padding: 80px 50px; 
-	color: var(--cor-texto-secundario); 
-	text-align: left;
+    padding: 80px 50px; 
+    color: var(--cor-texto-secundario); 
+    text-align: left;
 }
 
 .historia-duas-colunas:first-of-type {
-	/* Ajuste de padding para o primeiro bloco de duas colunas */
-	padding-top: 80px; 
+    padding-top: 80px; 
 }
 
 .container-historia-bloco {
-	max-width: 900px;
-	margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .container-colunas {
-	display: flex;
-	max-width: 1200px;
-	margin: 0 auto;
-	gap: 60px; /* Espaçamento entre as duas colunas */
-	align-items: flex-start; /* Alinha o conteúdo ao topo */
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px; 
+    align-items: flex-start; 
 }
 
 /* --------------------------------------- */
-/* FAIXAS ALTERNADAS DE COR                */
+/* FAIXAS ALTERNADAS DE COR                */
 /* --------------------------------------- */
 
-/* Bloco de Fundo Principal (Claro) */
 .bloco-fundo-principal {
-	background-color: var(--cor-fundo-principal);
+    background-color: var(--cor-fundo-principal);
 }
 
-/* Bloco de Fundo Acento (Tom Pêssego/Laranja) */
 .bloco-fundo-acento {
-	background-color: var(--cor-acento);
+    background-color: var(--cor-acento);
 }
 
-/* Garante que o texto seja escuro sobre o fundo CLARO */
 .bloco-fundo-principal p, 
 .bloco-fundo-principal .legenda-imagem,
 .bloco-fundo-principal .subtitulo-imagem {
-	color: var(--cor-texto-secundario); 
+    color: var(--cor-texto-secundario); 
 }
 
-/* Garante que o texto seja escuro sobre o fundo ACENTO */
 .bloco-fundo-acento p, 
 .bloco-fundo-acento .legenda-imagem,
 .bloco-fundo-acento .subtitulo-imagem {
-	color: var(--cor-texto-secundario); 
+    color: var(--cor-texto-secundario); 
 }
 
 
 /* ======================================= */
-/* 3. TIPOGRAFIA E COLUNAS                 */
+/* 3. TIPOGRAFIA E COLUNAS                 */
 /* ======================================= */
 
 .coluna-texto,
 .coluna-imagem-legenda {
-	flex: 1; 
+    flex: 1; 
 }
 
 .coluna-texto p {
-	font-family: var(--fonte-corpo);
-	font-size: 1.1rem; 
-	line-height: 1.8; 
-	color: var(--cor-texto-secundario); 
-	margin-bottom: 25px;
-	text-align: justify;
+    font-family: var(--fonte-corpo);
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    color: var(--cor-texto-secundario); 
+    margin-bottom: 25px;
+    text-align: justify;
 }
 
+
 /* ======================================= */
-/* 4. IMAGENS E LEGENDAS                   */
+/* 4. IMAGENS E LEGENDAS                   */
 /* ======================================= */
 
 .historia-imagem-pessoal {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start; 
-	margin: 0;
-	transition: all 0.3s ease-out;
-	cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin: 0;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
 }
 
 .historia-imagem-pessoal img {
-	width: 100%;
-	border-radius: 6px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-	transition: all 0.3s ease-out;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease-out;
 }
 
 .historia-imagem-pessoal:hover img {
-	transform: scale(1.02); 
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.02); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 .subtitulo-imagem {
-	font-family: var(--fonte-principal);
-	font-size: 1.4rem;
-	color: var(--cor-destaque);
-	margin-top: 15px;
-	margin-bottom: 5px;
+    font-family: var(--fonte-principal);
+    font-size: 1.4rem;
+    color: var(--cor-destaque);
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .legenda-imagem {
-	font-size: 0.9rem;
-	color: var(--cor-texto-secundario);
-	font-style: italic;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
 }
 
 
 /* ======================================= */
-/* 5. FAIXA DE DESTAQUE (Rodapé)           */
+/* 5. FAIXA DE DESTAQUE (Rodapé)           */
 /* ======================================= */
 .faixa-historia {
-	background-color: var(--cor-secundaria); 
-	color: var(--cor-fundo-principal); 
-	padding: 60px 50px;
-	text-align: center;
-	font-family: var(--fonte-principal);
-	font-size: 1.8rem; 
-	font-style: italic;
+    background-color: var(--cor-secundaria); 
+    color: var(--cor-fundo-principal); 
+    padding: 60px 50px;
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem; 
+    font-style: italic;
 }
 
 
 /* ======================================= */
-/* 6. RESPONSIVIDADE (Mobile Layout)       */
+/* 6. RESPONSIVIDADE (Mobile Layout)       */
 /* ======================================= */
 @media (max-width: 992px) {
     
-    /* Introdutório */
     .historia-intro-banner {
         padding: 80px 20px 30px 20px; 
     }
     
-	.historia-intro-banner h1 {
-		font-size: 2.5rem;
-	}
+    .historia-intro-banner h1 {
+        font-size: 2.5rem;
+    }
 
-    /* Colunas */
     .historia-duas-colunas {
         padding: 50px 20px;
         padding-top: 50px;
     }
     
-    /* Empilhamento das colunas no mobile */
     .container-colunas {
         flex-direction: column;
         gap: 30px;
     }
 
-    /* Alternar a ordem na segunda seção (Imagem no topo) */
     .container-colunas.reverse-mobile {
         flex-direction: column-reverse; 
     }
     
-	.coluna-texto h1 {
-		font-size: 2.5rem;
-	}
+    .coluna-texto h1 {
+        font-size: 2.5rem;
+    }
 
-	.coluna-texto p {
-		font-size: 1rem;
-	}
+    .coluna-texto p {
+        font-size: 1rem;
+    }
 
-	.faixa-historia {
-		font-size: 1.3rem;
-		padding: 40px 20px;
-	}
+    .faixa-historia {
+        font-size: 1.3rem;
+        padding: 40px 20px;
+    }
 }
 
 /* --------------------------------------- */
-/* 7. AJUSTES DE DARK MODE                 */
+/* 7. AJUSTES DE DARK MODE                 */
 /* --------------------------------------- */
 
-/* Garante que o texto do banner permaneça branco/claro no Dark Mode */
 .dark-mode .historia-intro-banner h1,
 .dark-mode .historia-intro-banner .subtitulo-intro,
 .dark-mode .historia-intro-banner p {
     color: var(--cor-texto-principal); 
 }
 
-/* Fundo da faixa */
 .dark-mode .faixa-historia {
-	background-color: var(--cor-secundaria); 
-	color: var(--cor-fundo-principal); 
+    background-color: var(--cor-secundaria); 
+    color: var(--cor-fundo-principal); 
 }
 
-/* Sombras das imagens */
 .dark-mode .historia-imagem-pessoal img {
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.08);
 }

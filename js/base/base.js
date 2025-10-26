@@ -1,7 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------------------------------
-    // 1. MODO LIGHT/DARK
-    // ----------------------------------------------------------------
+
+    // ================================================================
+    // 1. FUNCIONALIDADE: TELA DE CARREGAMENTO (Loading Screen)
+    // ================================================================
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 300); 
+    }
+    
+    // ================================================================
+    // 2. FUNCIONALIDADE: MODO LIGHT/DARK (Existente)
+    // ================================================================
 
     const toggleButton = document.getElementById('toggle-dark-mode');
     const themeIcon = document.getElementById('theme-icon');
@@ -21,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
     const savedTheme = localStorage.getItem(localStorageKey);
 
     if (savedTheme) {
@@ -44,10 +55,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // ================================================================
+    // 3. FUNCIONALIDADE: FOCO VISÍVEL PARA ACESSIBILIDADE (Novo)
+    // ================================================================
+    (function enableKeyboardFocus() {
+        let hadKeyboardEvent = false;
 
-    // ----------------------------------------------------------------
-    // 2. BOTÃO DE VOLTAR AO TOPO 
-    // ----------------------------------------------------------------
+        function handleKeyDown() {
+            hadKeyboardEvent = true;
+        }
+
+        function handleMouseDown() {
+            hadKeyboardEvent = false;
+        }
+
+        function handleFocus(e) {
+            if (hadKeyboardEvent) {
+                e.target.classList.add('keyboard-focus');
+            }
+        }
+
+        function handleBlur(e) {
+            e.target.classList.remove('keyboard-focus');
+        }
+
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('focus', handleFocus, true); 
+        document.addEventListener('blur', handleBlur, true); 
+    })();
+
+
+    // ================================================================
+    // 4. FUNCIONALIDADE: BOTÃO DE VOLTAR AO TOPO (Existente)
+    // ================================================================
     const backToTopButton = document.getElementById('back-to-top');
     const scrollThreshold = 400; 
 
@@ -68,32 +109,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------------------
-	// 3. MENU DE NAVEGAÇÃO RESPONSIVO (HAMBURGER)
-	// ----------------------------------------------------------------
-	const menuIcone = document.getElementById('toggle-menu-mobile');
-	const menuLinks = document.querySelector('.menu-principal-links');
-	
-	if (menuIcone && menuLinks) {
-		
-		const fecharMenuAoClicar = () => {
-			if (menuLinks.classList.contains('menu-aberto')) {
-				menuLinks.classList.remove('menu-aberto');
-				menuIcone.classList.remove('is-active');
-			}
-		};
+    // ================================================================
+    // 5. FUNCIONALIDADE: MENU DE NAVEGAÇÃO RESPONSIVO (Existente)
+    // ================================================================
+    const menuIcone = document.getElementById('toggle-menu-mobile');
+    const menuLinks = document.querySelector('.menu-principal-links');
+    
+    if (menuIcone && menuLinks) {
+        
+        const fecharMenuAoClicar = () => {
+            if (menuLinks.classList.contains('menu-aberto')) {
+                menuLinks.classList.remove('menu-aberto');
+                menuIcone.classList.remove('is-active');
+            }
+        };
 
-		menuIcone.addEventListener('click', (e) => {
-			e.preventDefault();
-		
-			menuLinks.classList.toggle('menu-aberto');
-			menuIcone.classList.toggle('is-active');
-			
-			const links = menuLinks.querySelectorAll('a');
-			links.forEach(link => {
-				link.addEventListener('click', fecharMenuAoClicar, { once: true });
-			});
-		});
-	}
+        menuIcone.addEventListener('click', (e) => {
+            e.preventDefault();
+        
+            menuLinks.classList.toggle('menu-aberto');
+            menuIcone.classList.toggle('is-active');
+            
+            const links = menuLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', fecharMenuAoClicar, { once: true });
+            });
+        });
+    }
 
 });

@@ -4,18 +4,28 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sorocaba Oficial - História, Lazer e Turismo | Página Inicial</title>
+        
+        <title>Sorocaba Oficial: História, Lazer e Esportes | Página Inicial</title> 
+        <meta name="description" content="Descubra Sorocaba, a Manchester Paulista. Conheça a rica história industrial, as melhores opções de lazer e a vibrante cultura esportiva da cidade.">
+        <link rel="canonical" href="https://web-design-ruby-chi.vercel.app/home.html">
+
         <link rel="stylesheet" href="css/base/base.css"> 
         <link rel="stylesheet" href="css/home/home.css">
     </head>
 
     <body>
+        <div id="page-loader">
+            <div class="spinner"></div>
+            <p>Carregando Sorocaba...</p>
+        </div>
+
         <header class="navbar-fixa">
             <nav class="menu-principal-links">
                 <ul>
                     <li><a href="lazer.html">Lazer</a></li>
                     <li><a href="historia.html">História</a></li>
-                    <li><a href="esportes.html">Esportes</a></li> </ul>
+                    <li><a href="esportes.html">Esportes</a></li> 
+                </ul>
             </nav>
 
             <div class="logo">
@@ -43,9 +53,10 @@
 
         <section class="main-section">
             <div class="main-conteudo">
-                <h1>Sorocaba: Tradição e Inovação no Coração Paulista.</h1>
+                <h1>Sorocaba: Tradição e Inovação no Coração Paulista.</h1> 
                 <p>Descubra a história, a cultura e os melhores pontos da Manchester Paulista.</p>
-                <a href="esportes.html" class="botao-destaque">Conheça Sorocaba</a> </div>
+                <a href="esportes.html" class="botao-destaque">Conheça Sorocaba</a>
+            </div>
         </section>
 
         <section class="faixa-extra">
@@ -68,19 +79,19 @@
                 <div class="lazer-galeria">
                     
                     <div class="lazer-item">
-                        <img class="item-imagem-placeholder" src="midia/img_home/parque-das-aguas.jpeg" alt="Parque das Águas">
+                        <img class="item-imagem-placeholder" src="midia/img_home/parque-das-aguas.jpeg" alt="Vista do lago e arquibancada do Parque das Águas em Sorocaba.">
                         <p class="item-titulo">Parque das Águas</p>
                         <p class="item-info">Parques, lazer ao ar livre e grandes eventos.</p>
                     </div>
 
                     <div class="lazer-item">
-                        <img class="item-imagem-placeholder" src="midia/img_home/ciclovia.jpg" alt="Ciclovia de Sorocaba">
+                        <img class="item-imagem-placeholder" src="midia/img_home/ciclovia.jpg" alt="Pessoas pedalando na ciclovia principal da cidade.">
                         <p class="item-titulo">Ciclovia</p>
                         <p class="item-info">Mais de 120km de vias para esporte e saúde.</p>
                     </div>
 
                     <div class="lazer-item">
-                        <img class="item-imagem-placeholder" src="midia/img_home/iguatemi-esplanada.jpg" alt="Shopping Iguatemi Esplanada">
+                        <img class="item-imagem-placeholder" src="midia/img_home/iguatemi-esplanada.jpg" alt="Interior do Shopping Iguatemi Esplanada.">
                         <p class="item-titulo">Shopping Iguatemi</p>
                         <p class="item-info">Centro de compras, cinema e gastronomia de alto nível.</p>
                     </div>
@@ -94,7 +105,7 @@
             <div class="container-historia">
 
                 <div class="historia-coluna-esquerda">
-                    <img class="historia-imagem-placeholder" src="midia/img_home/historia-sorocaba.png" alt="Estação Ferroviária de Sorocaba">
+                    <img class="historia-imagem-placeholder" src="midia/img_home/historia-sorocaba.png" alt="Antiga Estação Ferroviária de Sorocaba com arquitetura histórica.">
                     <div class="historia-imagem-legenda">
                         <h4>Estação Ferroviária de Sorocaba</h4>
                         <p>O coração do ciclo Tropeiro e Industrial no início do século XX.</p>
@@ -110,21 +121,28 @@
             </div>
         </section>
 
-        <section class="section-esportes"> <div class="esportes-header"> <h2>Esportes e Aventura.</h2>
+        <section class="section-esportes"> 
+            <div class="esportes-header"> 
+                <h2>Esportes e Aventura.</h2>
                 <p>Explore a paixão esportiva de Sorocaba: de ciclovias a grandes equipes de futsal.</p>
-                <a href="esportes.html" class="botao-esportes">Ver Esportes</a> </div>
+                <a href="esportes.html" class="botao-esportes">Ver Esportes</a> 
+            </div>
 
-            <div class="container-esportes-galeria"> <div class="esportes-item"> <img class="item-imagem-placeholder" src="midia/img_esportes/ciclismo_sorocaba.webp" alt="Ciclistas na ciclovia de Sorocaba">
+            <div class="container-esportes-galeria"> 
+                <div class="esportes-item"> 
+                    <img class="item-imagem-placeholder" src="midia/img_esportes/ciclismo_sorocaba.webp" alt="Ciclistas pedalando na ciclovia de Sorocaba com sol ao fundo.">
                     <p class="item-titulo">Ciclovias da Cidade</p>
                     <p class="item-info">Mais de 130km para pedalar com segurança.</p>
                 </div>
 
-                <div class="esportes-item"> <img class="item-imagem-placeholder" src="midia/img_esportes/magnus_futsal.jpg" alt="Time Magnus Futsal celebrando um título">
+                <div class="esportes-item"> 
+                    <img class="item-imagem-placeholder" src="midia/img_esportes/magnus_futsal.jpg" alt="Jogadores do Magnus Futsal celebrando com o troféu.">
                     <p class="item-titulo">Magnus Futsal</p>
                     <p class="item-info">Campeões mundiais e orgulho sorocabano.</p>
                 </div>
 
-                <div class="esportes-item"> <img class="item-imagem-placeholder" src="midia/img_esportes/maratona_sorocaba.jpg" alt="Corredores em uma maratona em Sorocaba">
+                <div class="esportes-item"> 
+                    <img class="item-imagem-placeholder" src="midia/img_esportes/maratona_sorocaba.jpg" alt="Grupo de corredores na largada de uma maratona de rua em Sorocaba.">
                     <p class="item-titulo">Corridas de Rua</p>
                     <p class="item-info">Eventos que movimentam a cidade e seus atletas.</p>
                 </div>
@@ -148,7 +166,7 @@
                         <li><a href="home.html">Início</a></li>
                         <li><a href="lazer.html">Lazer</a></li>
                         <li><a href="historia.html">História</a></li>
-                        <li><a href="esportes.html">Esportes</a></li>
+                        <li><a href="esportes.html">Esportes</a></li> 
                     </ul>
                 </div>
 
@@ -156,7 +174,7 @@
                     <h3>Fale Conosco</h3>
                     <ul>
                         <li><a href="mailto:contato@sorocaba.com">Email: contato@sorocaba.com</a></li>
-                        <li><a href="#">Telefone: (15) 99999-9999</a></li>
+                        <li>Telefone: (15) 99999-9999</li> 
                         <li><a href="#">Redes Sociais</a></li>
                     </ul>
                 </div>
