@@ -1,0 +1,328 @@
+/* '*' (seletor universal) reseta as margens e paddings de tudo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ':root' é onde definimos as variáveis de cor para o TEMA CLARO (padrão) */
+:root {
+    --primary: hsl(221.2, 83.2%, 53.3%);
+    --foreground: hsl(222.2, 84%, 4.9%); /* Cor do texto principal */
+    --background: hsl(0, 0%, 100%); /* Cor do fundo da página */
+    --card: hsl(0, 0%, 100%); /* Cor do fundo dos cards */
+    --muted: hsl(210, 40%, 96.1%);
+    --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --accent: hsl(210, 40%, 96.1%);
+}
+
+/* Quando o <body> tiver a classe ".dark", ele vai USAR ESTAS VARIÁVEIS (TEMA ESCURO) */
+body.dark {
+    --primary: hsl(217.2, 91.2%, 59.8%);
+    --foreground: hsl(210, 40%, 98%);
+    --background: #121212; /* Cor principal do modo escuro*/
+    --card: #1A1A1A;     /* Cor do card (um pouco mais clara para destacar do fundo) */
+    --muted: hsl(217.2, 32.6%, 17.5%);
+    --muted-foreground: hsl(215, 20.2%, 65.1%);
+    --border: hsl(217.2, 32.6%, 17.5%);
+    --accent: hsl(217.2, 32.6%, 17.5%);
+}
+
+/* Estilos gerais da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background); /* Puxa a cor da variável --background */
+    color: var(--foreground); /* Puxa a cor da variável --foreground */
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s; /* Animação suave para trocar de tema */
+}
+
+/* Classe 'container' para limitar a largura e centralizar o conteúdo */
+.container {
+    max-width: 1280px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 1rem;
+}
+
+/* Estilos do Banner (Hero) */
+.hero {
+    height: 60vh; /* Altura de 60% da tela */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    position: relative; /* Base para o 'hero-overlay' */
+    overflow: hidden;
+    background-image: url('https://www.construtoraplaneta.com.br/wp-content/uploads/2020/06/iStock-524883725-scaled.jpg');
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+}
+
+/* Camada escura por cima da imagem do banner */
+.hero-overlay {
+    position: absolute;
+    inset: 0; /* (é o mesmo que top: 0, right: 0, bottom: 0, left: 0) */
+    background-color: rgba(0, 0, 0, 0.3); /* Preto com 30% de opacidade */
+}
+
+/* Conteúdo de texto do banner */
+.hero-content {
+    position: relative; /* Para ficar por cima do 'hero-overlay' */
+    z-index: 10;
+    text-align: center;
+    padding: 1rem;
+    animation: fadeIn 1s ease-in; /* Aplica a animação 'fadeIn' */
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+/* Media Query: Se a tela for MAIOR que 768px... */
+@media (min-width: 768px) {
+    /* aumenta o tamanho das fontes do banner */
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Seção das Atrações */
+.attractions {
+    padding: 5rem 1rem;
+}
+
+/* Onde os cards ficam */
+.attractions-grid {
+    display: flex;
+    flex-direction: column; /* Um card embaixo do outro */
+    gap: 8rem; /* Espaçamento entre os cards */
+}
+
+/* Estilo de CADA card */
+.attraction-card {
+    background-color: var(--card);
+    border-radius: 0.5rem;
+    overflow: hidden; /* Esconde o que sobrar da imagem (no zoom) */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    
+    /* Para a animação de scroll */
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa 20px para baixo */
+    will-change: opacity, transform; /* Dica de performance */
+}
+
+/* Classe que o JavaScript adiciona quando o card aparece na tela */
+.attraction-card.visible {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Volta para a posição original */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Efeito ao passar o mouse por cima do card */
+.attraction-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px); /* Sobe um pouquinho */
+}
+
+.attraction-content {
+    display: grid;
+    gap: 0;
+}
+
+/* Media Query: Em telas maiores, divide em 2 colunas (imagem e texto) */
+@media (min-width: 768px) {
+    .attraction-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.attraction-image-wrapper {
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .attraction-image-wrapper {
+        height: 100%;
+    }
+}
+
+.attraction-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+/* Efeito de zoom na imagem quando passa o mouse no card */
+.attraction-card:hover .attraction-image {
+    transform: scale(1.05); /* Aumenta o tamanho da imagem em 5% */
+}
+
+/* Bloco de texto do card */
+.attraction-text {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--card);
+}
+
+@media (min-width: 768px) {
+    .attraction-text {
+        padding: 3rem;
+    }
+}
+
+/* O número (01, 02, 03...) */
+.attraction-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.attraction-number span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #627363; /* Cor dos números */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* A linha ao lado do número */
+.attraction-number::after {
+    content: '';
+    height: 1px;
+    width: 3rem;
+    background-color: hsla(var(--primary), 0.3);
+}
+
+.attraction-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .attraction-title {
+        font-size: 2.25rem;
+    }
+}
+
+.attraction-description {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    line-height: 1.75;
+}
+
+/* Seção CTA (Chamada para Ação) */
+.cta {
+    padding: 5rem 1rem;
+    background: linear-gradient(to bottom right, hsla(221.2, 83.2%, 53.3%, 0.1), hsla(210, 40%, 96.1%, 0.1));
+}
+
+.cta-text {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+    max-width: 42rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Botão de Voltar ao Topo */
+.scroll-top {
+    position: fixed; /* Fica fixo na tela, mesmo com o scroll */
+    bottom: 2rem;
+    right: 2rem;
+    
+    background-color: var(--card); /* Fundo branco (claro) ou cinza-escuro (escuro) */
+    color: #627363; /* Cor da SETA (o ícone) 
+
+    padding: 1rem;
+    border-radius: 50%; /* Deixa o botão redondo */
+    border: 1px solid var(--border); /* borda para destacar no modo claro */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 50; /* Garante que ele fique por cima de outros elementos */
+}
+
+.scroll-top:hover {
+    transform: scale(1.1); /* Efeito de aumentar um pouco */
+    opacity: 0.9;
+}
+
+.scroll-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke-width: 2;
+}
+
+/* Definição das Animações (Keyframes) */
+
+/* Animação 'fadeIn' usada no banner */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classes para as animações dos cards (esquerda e direita) */
+.fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.6s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); /* Começa 20px para a esquerda */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Termina na posição 0 */
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px); /* Começa 20px para a direita */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Termina na posição 0 */
+    }
+}

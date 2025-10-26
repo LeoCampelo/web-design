@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos Turísticos de Sorocaba</title>
+    <meta name="description" content="Explore os locais mais icônicos, históricos e naturais que a Manchester Paulista tem a oferecer">
+    
+    <link rel="stylesheet" href="style_pontoturistico.css">
+</head>
+<body>
+    
+    <header class="navbar-fixa">
+            <nav class="menu-principal-links">
+                <ul>
+                    <li><a href="lazer.html">Lazer</a></li>
+                    <li><a href="historia.html">História</a></li>
+                    <li><a href="pontos-turisticos.html">Pontos Turísticos</a></li>
+                </ul>
+            </nav>
+
+            <div class="logo">
+                <a href="home.html">SOROCABA</a>
+            </div>
+
+            <div class="menu-direita">
+                <div class="hamburger-menu" id="toggle-menu-mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-principal-tema">
+                    <a href="#" id="toggle-dark-mode" title="Alternar Modo Claro/Escuro">
+                        <span id="theme-icon" aria-hidden="true">🌙</span>
+                    </a>
+                </div>
+                <div class="menu-principal-icone">
+                    <a href="manga.html" title="Página do Manga">
+                        <span class="emoji-manga" aria-hidden="true">🥭</span>
+                    </a>
+                </div>
+            </div>
+    </header>
+
+    <section class="attractions">
+        <div class="container">
+            <div class="attractions-grid" id="attractionsGrid"></div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <p class="cta-text">Visite Sorocaba e descubra a rica história e beleza natural da nossa cidade</p>
+        </div>
+    </section>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">
+        <svg class="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script src="script_pontoturistico.js"></script>
+</body>
+</html>
