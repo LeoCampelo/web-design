@@ -1,0 +1,234 @@
+/* ========================================
+   ESPORTES.CSS - Estilo baseado em historia.css
+   ======================================== */
+
+/* ---------------------------------------- */
+/* 1. BLOCO INTRODUTÓRIO (BANNER)           */
+/* ---------------------------------------- */
+
+.esportes-intro-banner {
+    /* Padding para o canto esquerdo, ajustado */
+    padding: 120px 50px 80px 50px; 
+    
+    /* IMAGEM DE FUNDO COM OVERLAY ESCURO */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('../../midia/img_esportes/banner_esportes.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    text-align: left; 
+}
+
+.esportes-intro-banner h1 {
+    font-family: var(--fonte-principal);
+    font-size: 3.8rem; 
+    color: var(--cor-texto-principal); 
+    text-align: left; 
+    margin-bottom: 15px;
+    max-width: 700px;
+}
+
+.subtitulo-intro {
+    font-family: var(--fonte-corpo);
+    font-size: 1.3rem; 
+    line-height: 1.5;
+    color: var(--cor-texto-principal); 
+    margin-bottom: 30px;
+    text-align: left; 
+    max-width: 900px;
+    margin-left: 0; 
+    margin-right: auto;
+}
+
+/* Garante que o texto do banner permaneça claro no Dark Mode */
+.dark-mode .esportes-intro-banner h1,
+.dark-mode .esportes-intro-banner .subtitulo-intro {
+    color: var(--cor-texto-principal); 
+}
+
+
+/* ---------------------------------------- */
+/* 2. ESTILIZAÇÃO DE BLOCOS DE CONTEÚDO     */
+/* ---------------------------------------- */
+
+.esportes-bloco {
+    padding: 80px 50px; 
+    color: var(--cor-texto-secundario); 
+    text-align: left;
+}
+
+.container-colunas {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px; /* Espaçamento entre as duas colunas */
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+/* Título do bloco */
+.titulo-bloco {
+    font-family: var(--fonte-principal);
+    font-size: 2.5rem; 
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: var(--cor-destaque);
+}
+
+/* NOVO: Inverte a ordem apenas no desktop para as seções reverse-desktop */
+.container-colunas.reverse-desktop {
+    flex-direction: row-reverse;
+}
+
+/* Tipografia */
+.coluna-texto {
+    flex: 1; 
+    padding-top: 10px; /* Alinhamento visual */
+}
+
+.coluna-texto p {
+    font-family: var(--fonte-corpo);
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    color: var(--cor-texto-secundario); 
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* Imagens */
+.coluna-imagem-legenda {
+    flex: 1; 
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+}
+
+.coluna-imagem-legenda:hover {
+    transform: translateY(-5px); 
+}
+
+.esportes-imagem-placeholder {
+    width: 100%;
+    height: 450px; /* Altura padrão para as imagens */
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px; 
+    display: block;
+}
+
+.subtitulo-imagem {
+    font-family: var(--fonte-principal);
+    font-size: 1.4rem;
+    color: var(--cor-destaque);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.legenda-imagem {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+}
+
+
+/* -- REGRAS DE FUNDO -- (Garantidas por base.css ou adicionadas abaixo para alternância) */
+
+.bloco-fundo-principal {
+    background-color: var(--cor-fundo-principal); 
+}
+
+.bloco-fundo-acento {
+    background-color: var(--cor-acento); 
+}
+
+
+/* ---------------------------------------- */
+/* AJUSTES DE CONTRASTE E DARK MODE         */
+/* ---------------------------------------- */
+
+/* Garante que o texto seja legível sobre o fundo Acento/Pêssego */
+.bloco-fundo-acento .coluna-texto p,
+.bloco-fundo-acento .legenda-imagem {
+    color: var(--cor-texto-secundario); 
+}
+
+/* Dark Mode ajustes de cor */
+.dark-mode .titulo-bloco,
+.dark-mode .subtitulo-imagem {
+    color: var(--cor-destaque); 
+}
+.dark-mode .coluna-texto p,
+.dark-mode .legenda-imagem {
+    color: var(--cor-texto-secundario); 
+}
+
+/* Ajusta as cores de texto quando o bloco acento está no dark mode */
+.dark-mode .bloco-fundo-acento .coluna-texto p,
+.dark-mode .bloco-fundo-acento .legenda-imagem {
+    color: var(--cor-texto-secundario); 
+}
+
+/* Definições de Cores de Fundo no Dark Mode */
+.dark-mode .bloco-fundo-principal {
+    background-color: var(--cor-fundo-principal); 
+}
+
+.dark-mode .bloco-fundo-acento {
+    background-color: var(--cor-acento); 
+}
+
+
+/* ---------------------------------------- */
+/* 3. RESPONSIVIDADE (Mobile Layout)        */
+/* ---------------------------------------- */
+
+@media (max-width: 992px) {
+    
+    .esportes-intro-banner {
+        padding: 80px 20px 30px 20px; 
+    }
+    
+    .esportes-intro-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .esportes-bloco {
+        padding: 50px 20px;
+    }
+    
+    /* Padrão Mobile: Colunas empilham de forma natural (primeiro elemento do HTML no topo) */
+    .container-colunas {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* Remove a inversão no mobile, garantindo que o fluxo HTML seja mantido. */
+    .container-colunas.reverse-desktop {
+        flex-direction: column; 
+    }
+    
+    /* Caso as seções invertidas queiram a imagem no topo no mobile (opcional): */
+    .container-colunas.reverse-desktop {
+        flex-direction: column-reverse;
+    }
+    
+    /* A regra acima garante que nas seções 2 e 4 (imagem primeiro no desktop),
+       o texto fique primeiro no mobile para melhor leitura. Caso queira a imagem
+       no topo no mobile, use: flex-direction: column-reverse;
+       Deixei como `column-reverse` para que nas seções 2 e 4 (Imagem + Texto)
+       a IMAGEM APAREÇA NO TOPO NO MOBILE.
+    */
+
+
+    .titulo-bloco {
+        font-size: 2rem;
+    }
+
+    .coluna-texto p {
+        font-size: 1rem;
+    }
+
+    .esportes-imagem-placeholder {
+        height: 300px;
+    }
+}
