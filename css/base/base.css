@@ -249,7 +249,8 @@ ul {
 }
 
 .rodape-coluna a:hover {
-    color: var(--cor-destaque);
+    color: var(--cor-fundo-principal); 
+    opacity: 0.8;
 }
 
 .logo-rodape {
