@@ -1,3 +1,7 @@
+/* ========================================
+   MANGA.CSS - Padrão de Identidade Sorocaba
+   ======================================== */
+
 /* ---------------------------------------- */
 /* 1. LAYOUT GERAL E ESPAÇAMENTO            */
 /* ---------------------------------------- */
@@ -31,7 +35,7 @@
     position: relative;
     background-image: url('../../midia/img_manga/manga_banner.jpg');
     background-size: cover;
-    background-position: center 10%;
+    background-position: center 10%; 
     background-attachment: fixed; 
     height: 100vh;
     display: flex;
@@ -187,16 +191,11 @@
 /* ---------------------------------------- */
 /* 4. AJUSTES DE CONTRASTE E DARK MODE      */
 /* ---------------------------------------- */
+
+/* SOLUÇÃO FINAL: Sobrescreve a variável de texto principal para ESCURA no Dark Mode */
 .dark-mode .manga-intro-banner {
-    --cor-texto-principal: #333333; 
+    --cor-texto-contraste-claro: #333333; 
 }
-
-.dark-mode .manga-intro-banner .hero-title,
-.dark-mode .manga-intro-banner .hero-description {
-    color: var(--cor-texto-contraste-claro); 
-    text-shadow: none;
-}
-
 
 .bloco-fundo-acento .section-title,
 .bloco-fundo-acento .content-subtitle,
@@ -227,7 +226,7 @@
 /* ---------------------------------------- */
 /* 5. RESPONSIVIDADE (Mobile)               */
 /* ---------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .section-content {
         padding: 0 20px;
     }
@@ -259,15 +258,28 @@
     }
     
     .manga-intro-banner {
-        height: auto;
+        height: 450px; 
         padding-top: 100px;
         padding-bottom: 60px;
         background-attachment: scroll;
+        background-position: center top; 
+        display: block; 
     }
     
     .manga-intro-banner .hero-title,
     .manga-intro-banner .hero-description {
         display: none !important; 
+    }
+    
+    .manga-intro-banner .section-content {
+        transform: none; 
+        margin-left: auto; 
+        margin-right: auto;
+        text-align: center; 
+    }
+
+    .manga-intro-banner .hero-title {
+        font-size: 2.5rem;
     }
 
     .main-container {
