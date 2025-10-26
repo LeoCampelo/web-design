@@ -6,16 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof ScrollReveal !== 'undefined') {
         const sr = ScrollReveal({ distance: '40px', duration: 900, easing: 'ease-out', reset: false });
 
-        // Animação do Banner Introdutório
         sr.reveal('.lazer-intro-banner h1', { origin: 'left' });
         sr.reveal('.lazer-intro-banner .lazer-subtitulo', { origin: 'left', delay: 100 });
         sr.reveal('#lazer-search-controls', { origin: 'top', delay: 200 });
         
-        // Animação dos itens de lista
         sr.reveal('.lazer-topico', { origin: 'left', delay: 120, interval: 100 });
         sr.reveal('.lazer-item', { origin: 'bottom', interval: 100, viewFactor: 0.2 });
         
-        // Faixa Extra e Rodapé
         sr.reveal('.faixa-extra', { origin: 'bottom', duration: 800, distance: '30px' });
         sr.reveal('.rodape', { origin: 'bottom', duration: 800, distance: '20px', delay: 100 });
     }
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     (function addSearchAndControls() {
         const controlsHost = document.getElementById('lazer-search-controls');
         
-        // --- HTML gerado ---
         controlsHost.innerHTML = `
             <label for="lazer-search" class="lazer-search-label">Pesquisar</label>
             <div class="lazer-input-group">
@@ -38,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
-        // --- FIM HTML gerado ---
 
         const input = controlsHost.querySelector('#lazer-search');
         const clearBtn = controlsHost.querySelector('#lazer-clear');
@@ -184,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ev.key === 'ArrowLeft') showPrev();
     });
 
-    // Focus trap helpers
     let lastFocused = null;
     let focusableElements = [];
     let firstFocusable = null;

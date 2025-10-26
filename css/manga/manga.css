@@ -1,7 +1,3 @@
-/* ========================================
-   MANGA.CSS - Padrão de Identidade Sorocaba
-   ======================================== */
-
 /* ---------------------------------------- */
 /* 1. LAYOUT GERAL E ESPAÇAMENTO            */
 /* ---------------------------------------- */
@@ -19,12 +15,10 @@
     overflow: visible;
 }
 
-/* Fundo Principal (Branco/Claro) */
 .bloco-fundo-principal {
     background-color: var(--cor-fundo-principal);
 }
 
-/* Fundo Acento (Pêssego/Laranja) */
 .bloco-fundo-acento {
     background-color: var(--cor-acento);
 }
@@ -87,7 +81,6 @@
     overflow: visible;
 }
 
-/* TÍTULO PRINCIPAL DE BLOCO */
 .section-title {
     font-size: 2.2rem;
     font-family: var(--fonte-principal);
@@ -96,8 +89,6 @@
     margin-bottom: 50px; 
     position: relative;
     padding-bottom: 10px;
-    
-    /* Recuo de alinhamento com o texto de conteúdo */
     padding-left: 50px; 
 }
 
@@ -125,24 +116,19 @@
 }
 
 .two-column-grid.reverse {
-    /* Inverte a ordem visual (Imagem à Esquerda) */
     direction: rtl; 
 }
 
-/* Restaura a direção do texto dentro da coluna invertida */
 .two-column-grid.reverse > * {
     direction: ltr;
 }
 
-/* Coluna de Texto */
 .text-content {
-    /* No Grid, a largura é definida pelo grid-template-columns */
     padding: 0;
     min-width: 0; 
-    padding-top: 10px; /* Espaçamento da coluna de texto (para alinhar com imagem) */
+    padding-top: 10px; 
 }
 
-/* Coluna de Imagem */
 .image-container {
     position: relative;
     display: inline-block;
@@ -166,12 +152,11 @@
     border-radius: 6px;
 }
 
-/* SUBTÍTULO DE CONTEÚDO */
 .content-subtitle {
     font-size: 1.5rem;
     font-family: var(--fonte-principal);
     color: var(--cor-destaque);
-    margin-bottom: 1rem; /* Aumenta a margem abaixo do subtítulo */
+    margin-bottom: 1rem; 
     margin-top: 0;
     font-weight: bold;
     text-align: left; 
@@ -185,7 +170,6 @@
     text-align: justify;
 }
 
-/* LEGENDA DA IMAGEM */
 .image-caption {
     display: block;
     font-size: 0.9rem;
@@ -236,7 +220,6 @@
     }
     
     .two-column-grid {
-        /* No mobile, o Grid vira uma coluna única */
         grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0; 
@@ -244,7 +227,7 @@
     }
 
     .two-column-grid.reverse {
-        direction: ltr; /* Desfaz o RTL no mobile */
+        direction: ltr; 
     }
     
     .text-content {
